@@ -57,6 +57,7 @@ a {
 	display: grid;
 	grid-template-areas: "lp tp sf";
     height: 100vh;
+	overflow: hidden;
 }
 
 .project-tile { 
