@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Kiwi Maru', serif;
 }
 
 a { 
@@ -88,7 +89,7 @@ a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-    height:30vh;
+    height: 150%;
 	background-color: #008080;
 	z-index:1;
 }
@@ -98,11 +99,13 @@ a {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	color: #181818; 
+	overflow: hidden;
 }
 
 .contact-link { 
-	margin: 0% 15%;
+	margin: 0% 3%;
 }
 
 .contact-link:hover { 
