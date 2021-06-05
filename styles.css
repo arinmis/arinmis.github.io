@@ -26,13 +26,14 @@ a {
 #navbar a:hover { 
 	color: white;
 }
+
 #welcome { 
 	background-color: #181818;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-    height:100vh;
+    height:80vh;
 	color: white;
 }
  
@@ -92,6 +93,7 @@ a {
     height: 150%;
 	background-color: #008080;
 	z-index:1;
+    height:20vh;
 }
 
 #contact h1 { 
