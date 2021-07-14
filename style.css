@@ -1,0 +1,10 @@
+body { 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    min-height:100vh;
+    text-align: center;
+    background-color: #F0FFFF; 
+    font-family: 'Courier New', monospace;
+}
+
