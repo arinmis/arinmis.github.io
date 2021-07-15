@@ -2,9 +2,15 @@ body {
     display:flex; 
     flex-direction:column; 
     justify-content:center;
-    min-height:100vh;
+    height: 100vh;
+    overflow: hidden;
     text-align: center;
     background-color: #F0FFFF; 
     font-family: 'Courier New', monospace;
 }
 
+#content {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
