@@ -3,4 +3,4 @@
 * Add contol button to "game of life"
     - Stop
     - Clear
-* Add 'what is it?' link
+* Add 'what does it about?' link
