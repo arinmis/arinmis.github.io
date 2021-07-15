@@ -1,6 +1,5 @@
-
 let array;
-let sqareLength = 12;
+let sqareLength = 12; // change it for bigger squares 
 
 function setup() {
     let width =  windowWidth - (windowWidth % sqareLength);  
@@ -14,6 +13,7 @@ function setup() {
     }
 }
 
+// p5.js draw mehtod
 function draw() {
     // azure background
     background('rgb(240, 255, 255)'); 
@@ -23,7 +23,7 @@ function draw() {
             let x = sqareLength * j;
             let y = sqareLength * i;
             if (array[i][j] == 1)
-                fill('rgba(0, 0, 0, .75)'); 
+                fill('rgba(0, 0, 0, .5)'); 
             else 
                 fill('rgb(240, 255, 255)'); 
             rect(x, y, sqareLength, sqareLength);
@@ -47,6 +47,7 @@ function draw() {
 
 }
 
+// create custom array
 function createArray(width, height) {
     let array = new Array(height);
     for (let i = 0; i < array.length; i++) {
@@ -55,6 +56,7 @@ function createArray(width, height) {
     return array;
 }
 
+// copy array
 function copy2DArray(array) {
     let copy = new Array(array.length); 
     for (let i = 0; i < array.length; i++) {
