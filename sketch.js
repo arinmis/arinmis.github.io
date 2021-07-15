@@ -17,7 +17,6 @@ function setup() {
 function draw() {
     // azure background
     background('rgb(240, 255, 255)'); 
-    //background(100);
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
             let x = sqareLength * j;
