@@ -28,7 +28,7 @@ function draw() {
             else 
                 fill('rgb(240, 255, 255)'); 
             rect(x, y, sqareLength, sqareLength);
-            strokeWeight(.01);
+            strokeWeight(0);
 
         }
     }
