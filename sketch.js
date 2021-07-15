@@ -1,10 +1,12 @@
-let array;
+let fr = 24; // 24 fps
 let sqareLength = 12; // change it for bigger squares 
+let array;
 
 function setup() {
     let width =  windowWidth - (windowWidth % sqareLength);  
     let height = windowHeight - (windowHeight % sqareLength);
     createCanvas(width, height);
+    frameRate(fr);
     array = createArray(width / sqareLength,  height / sqareLength);
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
