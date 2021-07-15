@@ -1,4 +1,4 @@
-## Todo:
+## Todo
 
 * Add contol button to "game of life"
     - Stop
