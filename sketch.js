@@ -1,6 +1,6 @@
-let fr = 24; // 24 fps
-let sqareLength = 12; // change it for bigger squares 
-let array;
+const fr = 24; // 24 fps
+const sqareLength = 12; // change it for bigger squares 
+consts array;
 
 function setup() {
     let width =  windowWidth - (windowWidth % sqareLength);  
