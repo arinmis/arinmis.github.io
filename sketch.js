@@ -1,6 +1,8 @@
 const fr = 24; // 24 fps
 const sqareLength = 12; // change it for bigger squares 
 let array;
+let generation;
+let population = 0;
 
 function setup() {
     let width =  windowWidth - (windowWidth % sqareLength);  
@@ -11,8 +13,13 @@ function setup() {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
             array[i][j] = Math.floor(Math.random() * 2);
+            if (array[i][j] == 1)
+                population++;
         }
     }
+    generation = 1;
+    updateStats(generation, population);
+
 }
 
 // p5.js draw mehtod
@@ -39,13 +46,20 @@ function draw() {
         for (let j = 0; j < array[0].length; j++) {
             let numOfAliveNeighbour = getNumOfAlive(i, j, copyArray); 
             // over and underpopulation
-            if (numOfAliveNeighbour < 2 || numOfAliveNeighbour > 3) 
+            if (numOfAliveNeighbour < 2 || numOfAliveNeighbour > 3) { 
+                if (array[i][j] == 1)
+                    population--;
                 array[i][j] = 0;
-            else if (numOfAliveNeighbour == 3) 
+            }
+            else if (numOfAliveNeighbour == 3) { 
+                if (array[i][j] == 0)
+                    population++;
                 array[i][j] = 1;
+            }
         }
     }
-
+    generation++;
+    updateStats(generation, population);
 }
 
 // create custom array
@@ -110,4 +124,28 @@ function getNumOfAlive(i, j, array) {
             count++;
     }
     return count;
+}
+
+//game controller functions
+function updateStats(generation, population) {
+    document.getElementById("generation").innerHTML = "Generation: " + generation.toString();
+    document.getElementById("population").innerHTML = "Population: " + population.toString();
+}
+
+function changeState() {
+    if (document.getElementById("control-btn").innerHTML == "Stop") {
+        noLoop();
+        document.getElementById("control-btn").innerHTML = "Start";
+    }
+    else {
+        loop();
+        document.getElementById("control-btn").innerHTML = "Stop";
+    }
+}
+
+function dissappear() {
+    noLoop();
+    document.getElementById("game").style.display = "none";
+    document.getElementById("game-controller").style.display = "none";
+
 }
