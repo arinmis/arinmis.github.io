@@ -126,26 +126,4 @@ function getNumOfAlive(i, j, array) {
     return count;
 }
 
-//game controller functions
-function updateStats(generation, population) {
-    document.getElementById("generation").innerHTML = "Generation: " + generation.toString();
-    document.getElementById("population").innerHTML = "Population: " + population.toString();
-}
 
-function changeState() {
-    if (document.getElementById("control-btn").innerHTML == "Stop") {
-        noLoop();
-        document.getElementById("control-btn").innerHTML = "Start";
-    }
-    else {
-        loop();
-        document.getElementById("control-btn").innerHTML = "Stop";
-    }
-}
-
-function dissappear() {
-    noLoop();
-    document.getElementById("game").style.display = "none";
-    document.getElementById("game-controller").style.display = "none";
-
-}
