@@ -7,7 +7,7 @@
         <title>Mustafa Arinmis</title>
     </head>
     <body>  
-        <main>
+        <main id="game">
         </main>
         <div id="content">
             <div>
@@ -15,19 +15,28 @@
                 <p>a Computer Science Student</p>
             </div>
             <div>
+                <h3>Take a look at my CV</h3>
+                <a href="Mustafa_Arinmis_CV.pdf" target="_blank">CV</a>
+            </div>
+            <div id="game-controller">
+                <div id="generation">Generation: 1</div>
+                <div id="population">Population: 367</div>
+                <div>
+                    <button id="control-btn" onClick="changeState()">Stop</button>
+                    <button id="remove" onClick="dissappear()">Exit</button>
+                </div>
+                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">What is <em>Game of Life<em>?</a>
+            </div>
+            <div>
                 <h2>Contact with me!!!</h2>
                 <a href='https://github.com/Arinmis/'>Github</a>
                 <a href='https://www.linkedin.com/in/mustafa-arinmis-a2449618b/'>Linkedin</a>
             </div>
-            <div>
-                <h3>Take a look at my CV</h3>
-                <a href="Mustafa_Arinmis_CV.pdf" target="_blank">CV</a>
-            </div>
         </div>
-
         <!-- p5.js liblary -->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
         <!-- js code-->
         <script src="sketch.js"></script>
+        <script src="dragable.js"></script>
     </body>
 </html>

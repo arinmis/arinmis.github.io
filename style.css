@@ -14,3 +14,21 @@ body {
     left: 0;
     right: 0;
 }
+
+#game-controller {
+    display: flex;
+    flex-direction: column;
+    background: rgba(235,255,255,0.9);
+    cursor: move;
+    position: absolute;
+    width: fit-content;
+    padding: 5px;
+    top: 50px;
+    right: 50px;
+}
+ 
+#game-controller > * {
+    margin: 3px 3px; 
+}
+
+
