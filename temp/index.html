@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Word Trainer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- bootstrapt icons liblary -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    </head>
+    <body class="bg-dark bg-gradient">
+        <div class="container">
+          <div class="row vh-100 py-5 justify-content-evenly text-center text-white ">
+            <div class="col-3 py-3  bg-transparent shadow rounded h-100 overflow-hidden" id="words" >
+                <div class="row-2">
+                     <div  class="input-group mb-3">
+                        <input v-model="newWord" type="text" class="form-control" placeholder="write new word">
+                        <button class="btn btn-info ms-1" onclick="addWord()">add</button>
+                    </div>
+                </div>
+                <div class="row px-2 h-100 overflow-auto">
+                    <ol>
+                        <li v-for="word in wordArray" class="bg-info m-2 rounded">
+                            {{ word }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-3 py-3 bg-transparent bg-gradient shadow-lg rounded" id="quiz">
+                <div class="row-2 mb-5">
+                    <button class="btn btn-primary" onClick="start()">
+                         <i class="bi bi-skip-start"></i>
+                         Start
+                    </button>
+                </div>
+                <div class="row-4 my-5"  >
+                    <span v-for="char in quizWord.split('')">
+                        <span v-if="char != ' '" class="border-bottom border-2 border-dark pb-1">
+                            {{ char }}
+                        </span>
+                        <span v-else>
+                            {{ char }}
+                        </span>
+                    </span>
+                </div>
+                <div class="row-6">
+                     <div  class="input-group mb-3">
+                        <input v-model="answer" type="text" class="form-control" placeholder="write the answer">
+                    </div>
+                    <button class="btn btn-info ms-1" onClick="check()">Answer</button>
+                </div>
+            </div>
+            <div class="col-3 bg-gradient px-2 bg-transparent shadow rounded h-100 overflow-auto" id="answers">
+                <div class="row-2 mb-3">
+                    <h1>Answers</h1>
+                </div>
+                <div class="row-10">
+                    <ol>
+                        <li v-for="answer in correctAnswers" class="bg-success my-2 rounded">
+                                {{ answer }}
+                        </li>
+                        <li v-for="answer in wrongAnswers" class="bg-danger my-2 rounded">
+                                {{ answer }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- vue.js CDN -->
+        <script src="https://unpkg.com/vue@next"></script>
+        <!-- local js file -->
+        <script src="app.js"></script>
+        <!-- Bootstrapt 5 Bundle-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
