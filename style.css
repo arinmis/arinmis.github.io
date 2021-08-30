@@ -15,6 +15,10 @@ body {
     right: 0;
 }
 
+main {
+    height: 100vh;
+}
+
 #game-controller {
     display: flex;
     flex-direction: column;

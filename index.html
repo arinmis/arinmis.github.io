@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keywords" content="Mustafa Arinmis, Mustafa Arınmış">
         <meta name="author" content="Mustafa Arinmis">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <title>Mustafa Arinmis</title>
     </head>
     <body>  
-        <main id="game">
+        <main class"vh-100" id="game">
         </main>
         <div id="content">
             <div>
@@ -17,20 +18,17 @@
                 <p>a Computer Science Student</p>
             </div>
             <div>
-                <h2>Contact with me!!!</h2>
-                <a href='https://github.com/Arinmis/' target=_blank>Github</a>
-                <a href='https://www.linkedin.com/in/mustafa-arinmis-a2449618b/' target=_blank>Linkedin</a>
+                <h2>Check my links!!!</h2>
+                <a class="mx-2" href='https://github.com/Arinmis/' target=_blank>Github</a>
+                <a class="mx-2" href='https://www.linkedin.com/in/mustafa-arinmis-a2449618b/' target=_blank>Linkedin</a>
+                <a class="mx-2" href="Mustafa_Arinmis_CV.pdf" target="_blank">CV</a>
             </div>
-            <div>
-                <h3>Take a look at my CV</h3>
-                <a href="Mustafa_Arinmis_CV.pdf" target="_blank">CV</a>
-            </div>
-            <div id="game-controller">
-                <div id="generation">Generation: 1</div>
-                <div id="population">Population: 367</div>
+            <div class="round" id="game-controller">
+                <div id="generation">Generation: -1</div>
+                <div id="population">Population: -1</div>
                 <div>
-                    <button id="control-btn" onClick="changeState()">Stop</button>
-                    <button id="exit-game" onClick="dissappear()">Exit</button>
+                    <button class="btn-info" id="control-btn" onClick="changeState()">Stop</button>
+                    <button class="btn-info" id="exit-game" onClick="dissappear()">Exit</button>
                 </div>
                 <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target=_blank>What is <em>Game of Life<em>?</a>
             </div>
@@ -40,5 +38,7 @@
         <!-- js code-->
         <script src="sketch.js"></script>
         <script src="controller.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     </body>
 </html>
