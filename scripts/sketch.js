@@ -20,7 +20,6 @@ function setup() {
     }
     generation = 1;
     updateStats(generation, population);
-    noLoop();
 }
 
 // return 1 with given probability 
