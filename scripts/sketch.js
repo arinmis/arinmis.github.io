@@ -1,5 +1,6 @@
 const fr = 24; // 24 fps
 const sqareLength = 12; // change it for bigger squares 
+const initialProbability = .15 // set birth change of initial cells 
 let array;
 let generation;
 let population = 0;
@@ -12,14 +13,21 @@ function setup() {
     array = createArray(width / sqareLength,  height / sqareLength);
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
-            array[i][j] = Math.floor(Math.random() * 2);
+            array[i][j] = fillValue(initialProbability) // randomly initialize with number 0 or 1
             if (array[i][j] == 1)
                 population++;
         }
     }
     generation = 1;
     updateStats(generation, population);
+    noLoop();
+}
 
+// return 1 with given probability 
+function fillValue(percentage) {
+    if (percentage > Math.random())
+        return 1;
+    return 0;
 }
 
 // p5.js draw mehtod
@@ -60,6 +68,7 @@ function draw() {
     }
     generation++;
     updateStats(generation, population);
+
 }
 
 // create custom array

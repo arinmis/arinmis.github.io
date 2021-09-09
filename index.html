@@ -11,10 +11,19 @@
     </head>
     <body class"vh-100">  
 
-        <main class"vh-100" id="game">
+        <main class="vh-100" id="game">
         </main>
 
-        <div id="content">
+        <div  class="vh-100 d-flex justify-content-center align-items-center" id="content">
+            <div class="round" id="game-controller">
+                <div id="generation">Generation: 0</div>
+                <div id="population">Population: 0</div>
+                <div>
+                    <button class="btn btn-outline-warning btn-sm" id="control-btn" onClick="changeState()">Stop</button>
+                    <button class="btn btn-outline-danger btn-sm" id="exit-game" onClick="dissappear()">Exit</button>
+                </div>
+                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target=_blank>What is <em>Game of Life<em>?</a>
+            </div>
             <div>
                 <h2>Hi, I am Mustafa Arinmis</h2>
                 <p>a Computer Science Student</p>
@@ -25,15 +34,6 @@
                 <a class="mx-2" href='https://www.linkedin.com/in/mustafa-arinmis-a2449618b/' target=_blank>Linkedin</a>
                 <!--a class="mx-2" href="blogs/index.html" target="_blank">Blogs</a-->
                 <a class="mx-2" href="docs/Mustafa_Arinmis_CV.pdf" target="_blank">CV</a>
-            </div>
-            <div class="round" id="game-controller">
-                <div id="generation">Generation: 0</div>
-                <div id="population">Population: 0</div>
-                <div>
-                    <button class="btn btn-outline-warning btn-sm" id="control-btn" onClick="changeState()">Stop</button>
-                    <button class="btn btn-outline-danger btn-sm" id="exit-game" onClick="dissappear()">Exit</button>
-                </div>
-                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target=_blank>What is <em>Game of Life<em>?</a>
             </div>
         </div>
         <!-- p5.js liblary -->
