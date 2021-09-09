@@ -25,10 +25,10 @@ main {
     background: rgba(235,255,255,0.9);
     cursor: move;
     position: absolute;
-    width: fit-content;
+    width: 200px; 
     padding: 5px;
-    top: 5px;
-    right: 50px;
+    top: 20%;
+    right: 20%;
 }
  
 #game-controller > * {
