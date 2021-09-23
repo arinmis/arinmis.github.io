@@ -28,6 +28,13 @@ main {
     width: 220px; 
     padding: 5px;
     top: 5%;
+    opacity: .4;
+}
+
+#game-controller:hover {
+    opacity: 1;
+    box-shadow: 5px 5px 5px 5px black;
+
 }
  
 
