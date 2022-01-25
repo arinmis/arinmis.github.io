@@ -1,6 +1,6 @@
 const fr = 18; // 24 fps
-const sqareLength = 15; // change it for bigger squares 
-const initialProbability = .15 // set birth chance of initial cells 
+const sqareLength = 12; // change it for bigger squares 
+const initialProbability = .12 // set birth chance of initial cells 
 let array;
 let generation;
 let population = 0;
@@ -32,15 +32,15 @@ function fillValue(percentage) {
 // p5.js draw mehtod
 function draw() {
     // azure background
-    background('rgb(240, 255, 255)'); 
+    background('#FFFFFF'); 
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
             let x = sqareLength * j;
             let y = sqareLength * i;
             if (array[i][j] == 1)
-                fill('rgba(0, 0, 0, .5)'); 
+                fill('rgba(0, 0, 0, 0)'); 
             else 
-                fill('rgb(240, 255, 255)'); 
+                fill('#000000'); 
             rect(x, y, sqareLength, sqareLength);
             strokeWeight(0);
 

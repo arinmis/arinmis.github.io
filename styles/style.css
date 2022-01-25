@@ -5,7 +5,6 @@ body {
     height: 100vh;
     overflow: hidden;
     text-align: center;
-    background-color: #F0FFFF; 
     font-family: 'Courier New', monospace;
 }
 
@@ -42,4 +41,8 @@ main {
     margin: 3px 3px; 
 }
 
+#fozdil {
+    z-index: 2;
+    background: rgba(0,0,0,0.9);
+}
 
