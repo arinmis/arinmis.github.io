@@ -1,6 +1,6 @@
 const fr = 24; // 24 fps
 const sqareLength = 14; // change it for bigger squares 
-const initialProbability = .12 // set birth chance of initial cells 
+const initialProbability = .10 // set birth chance of initial cells 
 let array;
 let generation;
 let population = 0;
