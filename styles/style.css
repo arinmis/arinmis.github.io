@@ -1,48 +1,46 @@
-body { 
-    display:flex; 
-    flex-direction:column; 
-    justify-content:center;
-    height: 100vh;
-    overflow: hidden;
-    text-align: center;
-    font-family: 'Courier New', monospace;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 #content {
-    position: absolute;
-    left: 0;
-    right: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 main {
-    height: 100vh;
+  height: 100vh;
 }
 
 #game-controller {
-    display: flex;
-    flex-direction: column;
-    background: rgba(235,255,255,0.9);
-    cursor: move;
-    position: absolute;
-    width: 220px; 
-    padding: 5px;
-    top: 5%;
-    opacity: .4;
+  display: flex;
+  flex-direction: column;
+  background: rgba(235, 255, 255, 0.9);
+  cursor: move;
+  position: absolute;
+  width: 220px;
+  padding: 5px;
+  top: 5%;
+  opacity: 0.4;
 }
 
 #game-controller:hover {
-    opacity: 1;
-    box-shadow: 5px 5px 5px 5px black;
-
+  opacity: 1;
+  box-shadow: 5px 5px 5px 5px black;
 }
- 
 
 #game-controller > * {
-    margin: 3px 3px; 
+  margin: 3px 3px;
 }
 
 #fozdil {
-    z-index: 2;
-    background: rgba(0,0,0,0.9);
+  z-index: 2;
+  background: rgba(0, 76, 64, 0.9);
+  color: #fffff0;
 }
-

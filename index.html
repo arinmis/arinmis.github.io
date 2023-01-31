@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Mustafa Arinmis, Mustafa Arınmış">
-    <meta name="author" content="Mustafa Arinmis">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Mustafa Arinmis, Mustafa Arınmış" />
+    <meta name="author" content="Mustafa Arinmis" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Mustafa Arinmis</title>
   </head>
-  <body  class="vh-100" style="background: #000000">
-    <main class="vh-100" id="game">
-    </main>
-    <div  class="vh-100 d-flex justify-content-center align-items-center text-white" id="content">
+  <body class="vh-100" style="background: #fffff0">
+    <main class="vh-100" id="game"></main>
+    <div
+      class="vh-100 d-flex justify-content-center align-items-center text-white"
+      id="content"
+    >
       <div class="round" style="visibility: hidden" id="game-controller">
         <div id="generation">Generation: 0</div>
         <div id="population">Population: 0</div>
         <div>
-          <button class="btn btn-outline-warning btn-sm" id="control-btn" onClick="changeState()">Stop</button>
-          <button class="btn btn-outline-danger btn-sm" id="exit-game" onClick="dissappear()">Exit</button>
+          <button
+            class="btn btn-outline-warning btn-sm"
+            id="control-btn"
+            onClick="changeState()"
+          >
+            Stop
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            id="exit-game"
+            onClick="dissappear()"
+          >
+            Exit
+          </button>
         </div>
-        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"  target="_blank">What is <em>Game of Life</em>?</a>
-      </div  >
-      <div class="shadow-lg rounded-3 p-3 " id="fozdil">
+        <a
+          href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+          target="_blank"
+          >What is <em>Game of Life</em>?</a
+        >
+      </div>
+      <div class="shadow-lg rounded-3 p-3" id="fozdil">
         <div class="row mb-4">
           <div class="col">
             <h2>Hi, I am Mustafa Arinmis</h2>
@@ -38,53 +66,57 @@
           <div class="row text-decoration-none">
             <div class="col">
               <div>
-                <a class="mx-2 link-light" title='visit my Github' href='https://github.com/arinmis' target=_blank>
-                  <i class="fab fa-github fa-4x" ></i>
+                <a
+                  class="mx-2 link-light"
+                  title="visit my Github"
+                  href="https://github.com/arinmis"
+                  target="_blank"
+                >
+                  <i class="fab fa-github fa-4x"></i>
                 </a>
               </div>
-              <p class='mt-1 small'>
-              Github
-              </p>
+              <p class="mt-1 small">Github</p>
             </div>
             <div class="col">
               <div>
-                <a class="mx-2 link-light" title='visit my Linkedin' href='https://tr.linkedin.com/in/mustafa-ar%C4%B1nm%C4%B1%C5%9F-a2449618b?trk=people-guest_people_search-card' target=_blank>
-                  <i class="fab fa-linkedin fa-4x" ></i>
+                <a
+                  class="mx-2 link-light"
+                  title="visit my Linkedin"
+                  href="https://tr.linkedin.com/in/mustafa-ar%C4%B1nm%C4%B1%C5%9F-a2449618b?trk=people-guest_people_search-card"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin fa-4x"></i>
                 </a>
               </div>
-              <p class='mt-1 small'>
-              Linkedin
-              </p>
+              <p class="mt-1 small">Linkedin</p>
             </div>
             <div class="col">
               <div>
-                <a class="mx-2 link-light" title='download my CV' href='docs/Mustafa_Arinmis_CV.pdf' target=_blank>
-                  <i class="fas fa-file-user fa-4x" ></i>
+                <a
+                  class="mx-2 link-light"
+                  title="download my CV"
+                  href="docs/Mustafa_Arinmis_CV.pdf"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-user fa-4x"></i>
                 </a>
               </div>
-              <p class='mt-1 small'>
-               CV
-              </p>
+              <p class="mt-1 small">CV</p>
             </div>
           </div>
         </div>
-
-        <!--div  class="row mt-4">
-          <div class="col">
-          <q>
-          <em id="quote"></em>
-          </q>
-          </div>
-          </div-->
-    </div>
-
+      </div>
     </div>
     <!-- p5.js liblary -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <!-- js code-->
     <script src="scripts/sketch.js"></script>
     <script src="scripts/controller.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <!-- quote writer -->
     <!--script src="scripts/QuoteWriter.js"></script-->
   </body>
