@@ -39,8 +39,9 @@ main {
   margin: 3px 3px;
 }
 
-#fozdil {
+#desc {
+  padding: 15px; 
   z-index: 2;
-  background: rgba(0, 76, 64, 0.9);
+  background: rgba(0, 76, 64, 0.8);
   color: #fffff0;
 }
