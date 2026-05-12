@@ -258,7 +258,7 @@
 \newcommand{\taglinefont}{\large\bfseries}
 \newcommand{\personalinfofont}{\footnotesize\bfseries}
 \newcommand{\cvsectionfont}{\large\bfseries}
-\newcommand{\cvsubsectionfont}{\normalsize\bfseries}
+\newcommand{\cvsubsectionfont}{\small\bfseries}
 
 \newcommand{\makecvheader}{%
   \begingroup
@@ -280,8 +280,13 @@
 \newcommand{\cvsection}[2][]{%
   \nointerlineskip\smallskip%  %% bugfix in v1.6.2
   \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
-  {\color{heading}\cvsectionfont\MakeUppercase{#2}}\\[-1ex]%
-  \medskip
+{\color{heading}\cvsectionfont\MakeUppercase{#2}}\\[-1ex]%
+  {\color{headingrule}\rule{\linewidth}{1pt}\par}\smallskip
+}
+
+\newcommand{\cvsubsection}[1]{%
+  \smallskip%
+  {\color{subheading}\cvsubsectionfont{#1}\par}\smallskip%
 }
 
 \newcommand{\cvsubsection}[1]{%
