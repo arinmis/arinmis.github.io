@@ -1,22 +1,22 @@
 \documentclass[10pt,a4paper]{altacv}
-%% AltaCV uses the fontawesome5 package.
-%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
 
-% Change the page layout if you need to
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
-% The paracol package lets you typeset columns of text in parallel
 \usepackage{paracol}
 \usepackage[default]{lato}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[default]{lato}
-\hypersetup {
-    colorlinks,
-    allcolors=blue
+\usepackage{hyperref}
+\AtBeginDocument{%
+  \hypersetup{%
+    hidelinks,
+    colorlinks=false,
+    pdfborder={0 0 0},
+    pdfhighlight=/N
+  }%
 }
+\urlstyle{same}
 
-% Change the colours if you want to
 \definecolor{VividPurple}{HTML}{008080}
 \definecolor{SlateGrey}{HTML}{2E2E2E}
 \definecolor{LightGrey}{HTML}{666666}
@@ -25,15 +25,20 @@
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{LightGrey}
 
-% Change some fonts, if necessary
-\renewcommand{\cvItemMarker}{{\small\textbullet}}
-\renewcommand{\cvRatingMarker}{\faCircle}
+\linespread{0.95}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\AtBeginEnvironment{itemize}{%
+  \small
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+}
 
 \begin{document}
 
-
 \name{Mustafa Arinmiş}
-\tagline{Software Engineer}
+\tagline{AI Engineer}
 
 \personalinfo{%
     \email{mustafa\_arinmis@outlook.com}
@@ -47,71 +52,57 @@
 \makecvheader
 \end{fullwidth}
 
-%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
-\AtBeginEnvironment{itemize}{\small}
-
-%% Set the left/right column width ratio to 6:4.
 \columnratio{1}
-
-% Start a 2-column paracol. Both the left and right columns will automatically
-% break across pages if things get too long.
-\begin{paracol}{2}
+\begin{paracol}{1}
 
 \cvsection{Profile}
-Innovative \textbf{Backend \& AI Engineer} with hands-on experience in developing \textbf{LLM-powered services}, building \textbf{retrieval-augmented generation (RAG)} systems, and deploying intelligent, production-grade applications. Skilled in \textbf{Python}, \textbf{Flask}, and \textbf{.NET}, with strong expertise in \textbf{microservice architecture}, \textbf{API design}, and \textbf{cloud deployment} on \textbf{AWS}. Experienced in \textbf{AI agent orchestration}, vector-based \textbf{knowledge retrieval}, and implementing scalable \textbf{ML pipelines} integrated into backend systems. Passionate about leveraging \textbf{AI systems engineering} to create reliable, high-impact software solutions.
+AI-focused \textbf{Software Engineer} with a strong foundation in \textbf{machine learning} and \textbf{LLM integrations}. Building production AI systems using \textbf{Python}, \textbf{LangChain}, \textbf{RAG}, and \textbf{MCP (Model Context Protocol)}. Experienced with cloud-native deployments on \textbf{AWS}, distributed systems with \textbf{Dapr}, and scalable APIs in \textbf{.NET} and \textbf{Flask}. Passionate about applying AI to solve real-world problems across the full stack.
+
+\cvsection{Skills}
+\textbf{Languages:} Python, C\#, JavaScript\\
+\textbf{AI / LLM:} LangChain, LangGraph, Ollama, MCP (Model Context Protocol), RAG, Vector Databases, LLM fine-tuning\\
+\textbf{Frameworks:} Flask, .NET Core, FastAPI\\
+\textbf{Cloud \& DevOps:} AWS (ECR, ECS, Lambda, S3), Docker, Kubernetes\\
+\textbf{Messaging \& Data:} RabbitMQ, Redis, PostgreSQL, ChromaDB
 
 \cvsection{Experience}
 
-\cvevent{Backend \& AI Software Engineer}{SAN TSG}{Dec 2024 - Present}{Antalya, Turkiye}
-
+\cvevent{AI Engineer}{SAN TSG}{Dec 2024 -- Present}{Antalya, Turkiye}
 \begin{itemize}
-     \item Demonstrated \textbf{end-to-end full-stack ownership} by \textbf{architecting} and leading the development of the core MCP server and an LLM-independent AI Agent Service (\textbf{Python}/\textbf{Flask}) to extend platform capabilities.
-    \item Designed and deployed robust, scalable \textbf{APIs} within an \textbf{event-driven microservices architecture} (built with \textbf{.NET}).
-    \item Elevated \textbf{CI/CD best practices} by enabling scalable deployments using \textbf{Docker} and \textbf{Kubernetes} on \textbf{AWS}.
-    \item Implemented the \textbf{Dapr} sidecar for microservice communication, ensuring reliability and abstracting distributed system patterns (\textbf{RabbitMQ}, \textbf{Redis} for state management).
-    \item Developed a \textbf{Python-based RAG} (Retrieval-Augmented Generation) service and an automated utilization metrics service, deployed to \textbf{AWS ECR}.
+  \item Engineered and led the development of the core \textbf{MCP} (Model Context Protocol) server, architecting an \textbf{LLM-independent AI Agent Service} (\textbf{Python}, \textbf{Flask}) to extend platform capabilities with end-to-end full-stack ownership.
+  \item Developed a production \textbf{RAG} (Retrieval-Augmented Generation) service applying advanced NLP techniques to provide precise answers about technical documentation and APIs, deployed to \textbf{AWS ECR}.
+  \item Built an automated \textbf{Python} service to collect employee utilization metrics from \textbf{Bitbucket}, \textbf{JIRA}, and worklogs with email automation, deployed to \textbf{AWS ECR}.
+  \item Developed within a tourism project (excursion, flight, hotel booking) using an event-driven microservices architecture built with \textbf{.NET}.
+  \item Implemented the \textbf{Dapr} sidecar for microservice communication, leveraging \textbf{Docker}, \textbf{Kubernetes}, \textbf{Redis}, and \textbf{RabbitMQ} on \textbf{AWS}.
 \end{itemize}
 
 \divider
 
-\cvevent{Backend Software Engineer}{Mavi ArGe}{Oct 2024 - Dec 2024}{Antalya, Turkiye}
+\cvevent{Backend Software Engineer (Contract)}{Mavi ArGe}{Oct 2024 -- Dec 2024}{Antalya, Turkiye}
 \begin{itemize}
-\item Designed and developed \textbf{robust APIs} using \textbf{.NET} for the Fleet Management and Tracking System, specifically to analyze electrical vehicle battery data.
-\item Developed a rule-based engine to notify vehicle owners of extreme scenarios, enhancing system reliability and user experience.
+  \item Worked on a \textbf{TÜBİTAK} project focused on electric vehicle charging station management in an \textbf{IoT} system.
+  \item Developed \textbf{.NET} APIs for the Fleet Management and Tracking System to analyze electrical vehicle battery data.
+  \item Built a rule-based engine to notify vehicle owners of critical scenarios.
 \end{itemize}
 
 \divider
 
-\cvevent{Full Stack Software Developer}{P.I. Works}{Jun 2023 - Sep 2024}{Remote, Istanbul, Turkiye}
+\cvevent{Full Stack Software Developer}{P.I. Works}{Jun 2023 -- Sep 2024}{Remote, Istanbul, Turkiye}
 \begin{itemize}
-\item Drove \textbf{full-stack development} for the Experia enterprise platform, utilizing \textbf{Angular} (frontend) and \textbf{.NET} (backend) to deliver user-centric features.
-\item Elevated \textbf{engineering standards} and system reliability by significantly increasing \textbf{unit test} coverage and actively refactoring code smells across the codebase.
+  \item Developed new features, increased \textbf{unit test coverage}, and refactored code smells for an \textbf{Angular-.NET} enterprise telco platform.
+  \item Delivered user-centric features across the full stack, improving system stability and maintainability.
 \end{itemize}
 
 \divider
 
-\cvevent{Frontend Developer}{Linarit}{Feb 2022 - Sep 2022}{Antalya, Turkiye}
+\cvevent{Frontend Developer}{Linarit}{Feb 2022 -- Sep 2022}{Antalya, Turkiye}
 \begin{itemize}
-    \item Developed major features for a Single-Page Web Application using \textbf{React}, focusing on crafting engaging and intuitive user experiences for real-time IoT data visualization (via gRPC).
-    \item Optimized application performance by implementing \textbf{client-side cache} to reduce network traffic and optimizing data processing scripts.
+  \item Developed key features for the \textbf{Linarit PQM Industrial IoT platform}, including real-time \textbf{gRPC} data visualization, \textbf{client-side caching}, and performance optimizations.
+  \item Built interactive UI components in \textbf{React} for monitoring industrial IoT data in real time.
 \end{itemize}
-\divider
-\cvevent{Co-Founder}{Sentaks (Audiohealer Project)}{Sep 2021 - Jan 2022}{Antalya, Turkiye}
-
-\href[pdfnewwindow=true]{https://www.youtube.com/watch?v=4do4D7Q7iwc&ab_channel=SinanHanay}{Audiohealer} is a multiplatform application that cleans the background noise from audio automatically with AI. I worked with my professor on this project, created the mobile application, and deployed it to Google Play and App Store.
 
 \cvsection{Education}
-    \cvevent{Computer Engineering Bachelor}{Akdeniz University}{}{Antalya, Turkiye}
+\cvevent{Computer Engineering Bachelor}{Akdeniz University}{2024}{Antalya, Turkiye}
 
 \end{paracol}
-
-\cvsection{Certificates \& Volunteering}
-\begin{itemize}
-    \item \textbf{Python Data Fundamentals} 
-    \href{https://www.datacamp.com/completed/statement-of-accomplishment/track/ff8b3aebc16913308c9a35f7857bd084f1d76222}{(DataCamp)}
-    \item Volunteering: Co-recorded an 8-session \textbf{Python Tutorial Series}
-    \href{https://www.youtube.com/playlist?list=PLO9MeHg_rUWAp2_PiVtkwOa6Xv3F5BAr9}{(YouTube Playlist)}
-\end{itemize}
-
-
 \end{document}
