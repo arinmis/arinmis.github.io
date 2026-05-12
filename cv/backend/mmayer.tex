@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{altacv}
+
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+\usepackage{paracol}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+
+% Hyperlinks (altacv may override hyperref settings, so we force them at begin document)
+\usepackage{hyperref}
+\AtBeginDocument{%
+  \hypersetup{%
+    hidelinks,
+    colorlinks=false,
+    pdfborder={0 0 0},
+    pdfhighlight=/N
+  }%
+}
+\urlstyle{same}
+
+% Colours
+\definecolor{VividPurple}{HTML}{008080}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{heading}{VividPurple}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+
+% --- Tighter spacing ---
+\linespread{0.95}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\AtBeginEnvironment{itemize}{%
+  \small
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+}
+
+\begin{document}
+
+\name{Mustafa Arinmiş}
+\tagline{Backend Software Engineer}
+
+\personalinfo{%
+    \email{mustafa\_arinmis@outlook.com}
+    \phone{+90 543 549 99 53}
+    \location{Antalya, Turkiye}
+    \github{\href[pdfnewwindow=true]{https://github.com/arinmis}{github.com/arinmis}}
+    \linkedin{\href[pdfnewwindow=true]{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}
+}
+
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+\columnratio{1}
+\begin{paracol}{1}
+
+% PROFILE
+\cvsection{Profile}
+Backend-focused \textbf{Software Engineer} building \textbf{scalable APIs}, distributed \textbf{microservices}, and backend systems in \textbf{.NET}. Experienced with \textbf{event-driven architectures}, \textbf{database design}, and cloud-native deployments on \textbf{AWS}. Passionate about \textbf{reliability}, \textbf{CI/CD}, and shipping production-grade solutions using \textbf{Docker} and \textbf{Kubernetes}.
+
+% EXPERIENCE
+\cvsection{Experience}
+
+\cvevent{Backend \& AI Software Engineer}{SAN TSG}{Dec 2024 -- Present}{Antalya, Turkiye}
+\begin{itemize}
+  \item Designed and led development of an MCP server and LLM-independent AI Agent Service (\textbf{Python}/\textbf{Flask}) to extend platform capabilities.
+  \item Built scalable \textbf{.NET} microservices and APIs using \textbf{Dapr}, \textbf{RabbitMQ}, and \textbf{Redis} in an event-driven architecture.
+  \item Strengthened \textbf{CI/CD} and containerized workloads with \textbf{Docker}, \textbf{Kubernetes}, and \textbf{AWS ECR/EKS}.
+  \item Delivered a \textbf{Python-based RAG} system and automated utilization metrics service.
+\end{itemize}
+
+\divider
+
+\cvevent{Full Stack Software Developer}{P.I. Works}{Jun 2023 -- Sep 2024}{Remote, Istanbul, Turkiye}
+\begin{itemize}
+  \item Delivered enterprise platform features using \textbf{Angular} (frontend) and \textbf{.NET} (backend).
+  \item Increased \textbf{unit test coverage} and refactored legacy components to improve system stability.
+\end{itemize}
+
+\divider
+
+\cvevent{Frontend Developer}{Linarit}{Feb 2022 -- Sep 2022}{Antalya, Turkiye}
+\begin{itemize}
+  \item Built SPA features in \textbf{React} for real-time IoT data visualization via \textbf{gRPC}.
+  \item Reduced latency and bandwidth through \textbf{client-side caching} and efficient data processing.
+\end{itemize}
+
+\divider
+
+\cvevent{Co-Founder}{Sentaks (Audiohealer)}{Sep 2021 -- Jan 2022}{Antalya, Turkiye}
+\begin{itemize}
+  \item Built and published \href[pdfnewwindow=true]{https://www.youtube.com/watch?v=4do4D7Q7iwc&ab_channel=SinanHanay}{Audiohealer}, an AI-powered cross-platform mobile app that removes background noise from audio.
+\end{itemize}
+
+% EDUCATION
+\cvsection{Education}
+\cvevent{Computer Engineering Bachelor}{Akdeniz University}{}{Antalya, Turkiye}
+
+\end{paracol}
+\end{document}
