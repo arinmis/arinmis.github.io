@@ -257,8 +257,8 @@
 \newcommand{\namefont}{\Huge\bfseries}
 \newcommand{\taglinefont}{\large\bfseries}
 \newcommand{\personalinfofont}{\footnotesize\bfseries}
-\newcommand{\cvsectionfont}{\LARGE\bfseries}
-\newcommand{\cvsubsectionfont}{\large\bfseries}
+\newcommand{\cvsectionfont}{\Large\bfseries}
+\newcommand{\cvsubsectionfont}{\normalsize\bfseries}
 
 \newcommand{\makecvheader}{%
   \begingroup
@@ -278,10 +278,10 @@
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
 
 \newcommand{\cvsection}[2][]{%
-  \nointerlineskip\bigskip%  %% bugfix in v1.6.2
+  \nointerlineskip\smallskip%  %% bugfix in v1.6.2
   \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
   {\color{heading}\cvsectionfont\MakeUppercase{#2}}\\[-1ex]%
-  {\color{headingrule}\rule{\linewidth}{2pt}\par}\medskip
+  {\color{headingrule}\rule{\linewidth}{1pt}\par}\medskip
 }
 
 \newcommand{\cvsubsection}[1]{%
@@ -295,7 +295,7 @@
   {\large\color{emphasis}#1} \textbf{\color{accent}#2}\hfill%
   {\small%
     \BeginAccSupp{method=pdfstringdef,ActualText={#3}}\cvDateMarker\EndAccSupp{}~#3%
-    \ifstrequal{#4}{}{}{\quad%
+    \ifstrequal{#4}{}{}{\quad\textcolor{accent}{\large\textbar}\quad%
       \BeginAccSupp{method=pdfstringdef,ActualText={#4}}\cvLocationMarker\EndAccSupp{}~#4}%
   }\par
   \smallskip\normalsize

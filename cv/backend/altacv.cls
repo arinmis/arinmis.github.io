@@ -257,8 +257,8 @@
 \newcommand{\namefont}{\Huge\bfseries}
 \newcommand{\taglinefont}{\large\bfseries}
 \newcommand{\personalinfofont}{\footnotesize\bfseries}
-\newcommand{\cvsectionfont}{\LARGE\bfseries}
-\newcommand{\cvsubsectionfont}{\large\bfseries}
+\newcommand{\cvsectionfont}{\Large\bfseries}
+\newcommand{\cvsubsectionfont}{\normalsize\bfseries}
 
 \newcommand{\makecvheader}{%
   \begingroup
@@ -293,9 +293,10 @@
 % v1.7: adds accsupp ActualText for location and date markers
 \newcommand{\cvevent}[4]{%
   {\large\color{emphasis}#1} \textbf{\color{accent}#2}\hfill%
+  \begin{small}#3\end{small}\hfill%
   {\small%
     \BeginAccSupp{method=pdfstringdef,ActualText={#3}}\cvDateMarker\EndAccSupp{}~#3%
-    \ifstrequal{#4}{}{}{\quad%
+    \ifstrequal{#4}{}{}{\quad\textcolor{accent}{\large\textbar}\quad%
       \BeginAccSupp{method=pdfstringdef,ActualText={#4}}\cvLocationMarker\EndAccSupp{}~#4}%
   }\par
   \smallskip\normalsize
