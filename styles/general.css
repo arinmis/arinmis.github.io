@@ -1,4 +1,222 @@
-body { 
-    background-color: #000000; 
-    font-family: 'Courier New', monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2ecea;
+  color: #321e48;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a {
+  color: #e6994c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #c17a30;
+  text-decoration: underline;
+}
+
+nav {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(50, 30, 72, 0.15);
+}
+
+nav a {
+  font-size: 0.9rem;
+  color: rgba(50, 30, 72, 0.7);
+  letter-spacing: 0.05em;
+}
+
+nav a:hover {
+  color: #321e48;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #321e48;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.article-list {
+  list-style: none;
+}
+
+.article-list li {
+  border-bottom: 1px solid rgba(50, 30, 72, 0.15);
+  padding: 1.2rem 0;
+}
+
+.article-list li:first-child {
+  border-top: 1px solid rgba(50, 30, 72, 0.15);
+}
+
+.article-list a {
+  display: block;
+  font-size: 1.1rem;
+  color: #321e48;
+}
+
+.article-list a:hover {
+  color: #e6994c;
+  text-decoration: none;
+}
+
+.article-list .date {
+  font-size: 0.8rem;
+  color: rgba(50, 30, 72, 0.6);
+  margin-top: 0.3rem;
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(50, 30, 72, 0.15);
+}
+
+.article-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #321e48;
+  margin-bottom: 0.5rem;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.article-header .meta {
+  font-size: 0.85rem;
+  color: rgba(50, 30, 72, 0.6);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.article-content p {
+  margin-bottom: 1.5rem;
+  color: #321e48;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.article-content h2, .article-content h3 {
+  color: #321e48;
+  margin: 2rem 0 1rem;
+  font-size: 1.2rem;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+}
+
+.article-content pre {
+  background-color: #321e48;
+  color: #f2ecea;
+  border: 1px solid rgba(50, 30, 72, 0.3);
+  border-left: 3px solid #e6994c;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+
+.article-content code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  background-color: rgba(50, 30, 72, 0.08);
+  color: #321e48;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.article-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+}
+
+.article-content figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(50, 30, 72, 0.6);
+  margin-top: 0.5rem;
+}
+
+.article-content blockquote {
+  border-left: 3px solid #e6994c;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: rgba(50, 30, 72, 0.7);
+  font-style: italic;
+}
+
+.article-content ul, .article-content ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.article-content th, .article-content td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(50, 30, 72, 0.15);
+  color: #321e48;
+}
+
+.article-content th {
+  color: #e6994c;
+  font-weight: 600;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.article-content tr:hover {
+  background-color: rgba(50, 30, 72, 0.04);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .article-header h1 {
+    font-size: 1.4rem;
+  }
 }

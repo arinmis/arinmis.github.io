@@ -1,9 +1,9 @@
 :root {
-  --bg: #191312;
-  --cell: #e8e1e0;
-  --accent: #d9b46a;
-  --text-on-card: #191312;
-  --text-on-card-muted: rgba(25, 19, 18, 0.65);
+  --bg: #f2ecea;
+  --cell: #321e48;
+  --accent: #e6994c;
+  --text-on-card: #f2ecea;
+  --text-on-card-muted: rgba(242, 236, 234, 0.65);
 }
 
 * {
@@ -22,7 +22,7 @@ body {
   text-align: center;
   background: var(--bg);
   color: var(--cell);
-  font-family: "Manrope", system-ui, "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
@@ -35,7 +35,7 @@ main#game {
 }
 
 main#game canvas {
-  opacity: 0.45;
+  opacity: 0.2;
 }
 
 #content {
@@ -53,14 +53,14 @@ main#game canvas {
   color: var(--text-on-card);
   border-radius: 0.75rem;
   padding: 2rem 2.5rem;
-  border: 1px solid rgba(25, 19, 18, 0.06);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(50, 30, 72, 0.15);
+  box-shadow: 0 24px 70px rgba(50, 30, 72, 0.25);
   max-width: min(92vw, 32rem);
 }
 
 #desc h2 {
-  font-family: "Space Grotesk", "Manrope", sans-serif;
-  font-weight: 600;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 700;
   letter-spacing: -0.02em;
   font-size: clamp(1.5rem, 2.4vw, 2rem);
   margin: 0 0 0.25rem;
@@ -68,7 +68,7 @@ main#game canvas {
 }
 
 #desc .role {
-  font-family: "Manrope", sans-serif;
+  font-family: "Source Code Pro", monospace;
   font-weight: 500;
   color: var(--accent);
   letter-spacing: 0.08em;
