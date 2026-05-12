@@ -257,7 +257,7 @@
 \newcommand{\namefont}{\Huge\bfseries}
 \newcommand{\taglinefont}{\large\bfseries}
 \newcommand{\personalinfofont}{\footnotesize\bfseries}
-\newcommand{\cvsectionfont}{\Large\bfseries}
+\newcommand{\cvsectionfont}{\large\bfseries}
 \newcommand{\cvsubsectionfont}{\normalsize\bfseries}
 
 \newcommand{\makecvheader}{%
@@ -278,10 +278,10 @@
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
 
 \newcommand{\cvsection}[2][]{%
-  \nointerlineskip\bigskip%  %% bugfix in v1.6.2
+  \nointerlineskip\smallskip  %% bugfix in v1.6.2
   \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
   {\color{heading}\cvsectionfont\MakeUppercase{#2}}\\[-1ex]%
-  {\color{headingrule}\rule{\linewidth}{2pt}\par}\medskip
+  \medskip
 }
 
 \newcommand{\cvsubsection}[1]{%
