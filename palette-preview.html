@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palette Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Lora:wght@500;600&family=Sora:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 2.5rem 2rem 4rem;
+        background: #fafaf7;
+        color: #0f172a;
+        font-family: "Inter", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.5rem;
+      }
+      .intro {
+        color: #475569;
+        max-width: 60ch;
+        margin: 0;
+        line-height: 1.6;
+      }
+      .generate {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        background: #0f172a;
+        color: #fafaf7;
+        border: none;
+        border-radius: 8px;
+        padding: 0.85rem 1.4rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition: transform 0.1s ease, box-shadow 0.15s ease;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.1);
+      }
+      .generate:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+      }
+      .generate:active { transform: translateY(0); }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 1.5rem;
+      }
+      .tile {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      }
+      .preview {
+        height: 260px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--p-bg);
+        overflow: hidden;
+      }
+      .cells {
+        position: absolute;
+        inset: 0;
+        opacity: 0.5;
+      }
+      .cells span {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: var(--p-cell);
+      }
+      .card {
+        position: relative;
+        z-index: 2;
+        background: var(--p-cell);
+        color: var(--p-text);
+        border-radius: 8px;
+        padding: 1.1rem 1.6rem;
+        text-align: center;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        font-family: var(--p-font-body), "Inter", sans-serif;
+        min-width: 230px;
+      }
+      .card h3 {
+        margin: 0 0 0.15rem;
+        font-family: var(--p-font-display), "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+      }
+      .card .role {
+        margin: 0 0 0.7rem;
+        font-size: 0.7rem;
+        color: var(--p-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+      }
+      .icons {
+        display: flex;
+        gap: 0.9rem;
+        justify-content: center;
+        font-size: 1.35rem;
+      }
+      .icons i { color: var(--p-text); opacity: 0.9; }
+
+      .meta {
+        padding: 1rem 1.25rem 1.25rem;
+        border-top: 1px solid #e2e8f0;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .name {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .fonts {
+        font-size: 0.72rem;
+        color: #64748b;
+        margin-bottom: 0.6rem;
+      }
+      .swatches {
+        display: flex;
+        gap: 0.35rem;
+        margin-bottom: 0.7rem;
+      }
+      .sw {
+        flex: 1;
+        height: 26px;
+        border-radius: 4px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(15, 23, 42, 0.06);
+      }
+      .copy {
+        width: 100%;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: #0f172a;
+        background: #f1f5f9;
+        padding: 0.6rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .copy:hover { background: #0f172a; color: #fafaf7; }
+      .copy.copied { background: #16a34a; color: #fff; border-color: #16a34a; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <h1>Palette generator</h1>
+        <p class="intro">
+          Click <strong>Generate</strong> to roll 3 new palette + font pairings. When you find one you like, hit <strong>Copy</strong> and paste it back to me — I'll apply it to the real site.
+        </p>
+      </div>
+      <button class="generate" id="gen">
+        <i class="fas fa-shuffle"></i> Generate
+      </button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <script>
+      const FONT_PAIRS = [
+        ["Space Grotesk", "Inter"],
+        ["Fraunces", "Inter"],
+        ["Space Grotesk", "Manrope"],
+        ["IBM Plex Sans", "IBM Plex Sans"],
+        ["Outfit", "Outfit"],
+        ["DM Sans", "DM Sans"],
+        ["Fraunces", "DM Sans"],
+        ["JetBrains Mono", "Inter"],
+        ["Plus Jakarta Sans", "Plus Jakarta Sans"],
+        ["Lora", "Inter"],
+        ["Sora", "Inter"],
+        ["Space Grotesk", "JetBrains Mono"],
+      ];
+
+      const PALETTE_NAMES = [
+        "Aurora", "Ember", "Driftwood", "Lichen", "Saffron", "Cobalt",
+        "Mulberry", "Pewter", "Marigold", "Indigo", "Verdigris", "Terracotta",
+        "Slate", "Vermillion", "Sage", "Plum", "Coral", "Moss", "Ochre",
+        "Cerulean", "Rust", "Pine", "Linen", "Charcoal", "Cinnabar",
+      ];
+
+      function hslToHex(h, s, l) {
+        s /= 100;
+        l /= 100;
+        const k = (n) => (n + h / 30) % 12;
+        const a = s * Math.min(l, 1 - l);
+        const f = (n) => {
+          const c = l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
+          return Math.round(255 * c).toString(16).padStart(2, "0");
+        };
+        return `#${f(0)}${f(8)}${f(4)}`;
+      }
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function generatePalette() {
+        const hue = Math.floor(rand(0, 360));
+        const isDark = Math.random() < 0.4;
+        let bg, cell, text;
+        if (isDark) {
+          bg = hslToHex(hue, rand(15, 30), rand(8, 14));
+          cell = hslToHex((hue + rand(-15, 15) + 360) % 360, rand(8, 20), rand(88, 96));
+          text = hslToHex(hue, rand(15, 30), rand(8, 14));
+        } else {
+          bg = hslToHex(hue, rand(15, 35), rand(90, 96));
+          cell = hslToHex((hue + rand(-15, 15) + 360) % 360, rand(25, 55), rand(12, 22));
+          text = hslToHex(hue, rand(15, 35), rand(90, 96));
+        }
+        const accentHue = (hue + pick([150, 180, 210, -30, 30]) + 360) % 360;
+        const accent = hslToHex(accentHue, rand(55, 80), rand(50, 65));
+        const [display, body] = pick(FONT_PAIRS);
+        const name = pick(PALETTE_NAMES);
+        return { name, bg, cell, text, accent, display, body };
+      }
+
+      function seedCells(seed) {
+        const out = [];
+        let s = seed;
+        const r = () => {
+          s = (s * 9301 + 49297) % 233280;
+          return s / 233280;
+        };
+        for (let i = 0; i < 24; i++) {
+          for (let j = 0; j < 20; j++) {
+            if (r() < 0.18) out.push([i * 14, j * 14]);
+          }
+        }
+        return out;
+      }
+
+      function buildTile(p, idx) {
+        const cells = seedCells(Math.floor(Math.random() * 9999) + idx)
+          .map(([x, y]) => `<span style="left:${x}px;top:${y}px"></span>`)
+          .join("");
+
+        const copyText =
+          `palette: bg ${p.bg}, cell ${p.cell}, accent ${p.accent}\n` +
+          `fonts: ${p.display} (display) + ${p.body} (body)\n` +
+          `name: ${p.name}`;
+
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.innerHTML = `
+          <div class="preview" style="
+            --p-bg:${p.bg};
+            --p-cell:${p.cell};
+            --p-text:${p.text};
+            --p-accent:${p.accent};
+            --p-font-display:'${p.display}';
+            --p-font-body:'${p.body}';
+          ">
+            <div class="cells">${cells}</div>
+            <div class="card">
+              <h3>Hi, I am Mustafa Arinmis</h3>
+              <p class="role">Software Engineer</p>
+              <div class="icons">
+                <i class="fab fa-github"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fas fa-file-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="row">
+              <span class="name">${p.name}</span>
+            </div>
+            <div class="fonts">${p.display} · ${p.body}</div>
+            <div class="swatches">
+              <div class="sw" style="background:${p.bg};color:${p.cell}">${p.bg}</div>
+              <div class="sw" style="background:${p.cell};color:${p.text}">${p.cell}</div>
+              <div class="sw" style="background:${p.accent};color:#fff">${p.accent}</div>
+            </div>
+            <button class="copy" data-text="${copyText.replace(/"/g, "&quot;")}">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        `;
+        return tile;
+      }
+
+      function render() {
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
+        for (let i = 0; i < 3; i++) {
+          grid.appendChild(buildTile(generatePalette(), i));
+        }
+        attachCopyHandlers();
+      }
+
+      function attachCopyHandlers() {
+        document.querySelectorAll(".copy").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            const text = btn.getAttribute("data-text");
+            try {
+              await navigator.clipboard.writeText(text);
+            } catch {
+              const ta = document.createElement("textarea");
+              ta.value = text;
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand("copy");
+              ta.remove();
+            }
+            const original = btn.innerHTML;
+            btn.classList.add("copied");
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied — paste it back to me';
+            setTimeout(() => {
+              btn.classList.remove("copied");
+              btn.innerHTML = original;
+            }, 2200);
+          });
+        });
+      }
+
+      document.getElementById("gen").addEventListener("click", render);
+      render();
+    </script>
+  </body>
+</html>

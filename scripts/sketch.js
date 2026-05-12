@@ -1,116 +1,130 @@
-const fr = 24; // 24 fps
-const sqareLength = 14; // change it for bigger squares
-const initialProbability = 0.1; // set birth chance of initial cells
-let array;
-let generation;
-let population = 0;
+(function () {
+  const FPS = 14;
+  const FRAME_INTERVAL = 1000 / FPS;
+  const CELL = 9;
+  const INITIAL_FILL = 0.10;
 
-function setup() {
-  let width = windowWidth - (windowWidth % sqareLength);
-  let height = windowHeight - (windowHeight % sqareLength);
-  createCanvas(width, height);
-  frameRate(fr);
-  array = createArray(width / sqareLength, height / sqareLength);
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[0].length; j++) {
-      array[i][j] = fillValue(initialProbability); // randomly initialize with number 0 or 1
-      if (array[i][j] == 1) population++;
+  const reducedMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const ALIVE = window.GOL_ALIVE || "#e8e1e0";
+  const DEAD = window.GOL_DEAD || "#191312";
+  const s = window.GOL_STROKE || [232, 225, 224, 28];
+  const STROKE = `rgba(${s[0]},${s[1]},${s[2]},${s[3] / 255})`;
+
+  const game = document.getElementById("game");
+  const canvas = document.createElement("canvas");
+  canvas.style.display = "block";
+  game.appendChild(canvas);
+  const ctx = canvas.getContext("2d", { alpha: false });
+
+  let cols = 0, rows = 0;
+  let cells = null, scratch = null;
+  let running = true;
+  let lastTick = 0;
+  let rafId = 0;
+
+  function init() {
+    const w = Math.floor(window.innerWidth / CELL) * CELL;
+    const h = Math.floor(window.innerHeight / CELL) * CELL;
+    canvas.width = w;
+    canvas.height = h;
+    cols = w / CELL;
+    rows = h / CELL;
+    cells = new Uint8Array(cols * rows);
+    scratch = new Uint8Array(cols * rows);
+    for (let i = 0; i < cells.length; i++) {
+      if (Math.random() < INITIAL_FILL) cells[i] = 1;
     }
-  }
-  generation = 1;
-  updateStats(generation, population);
-}
-
-// return 1 with given probability
-function fillValue(percentage) {
-  if (percentage > Math.random()) return 1;
-  return 0;
-}
-
-// p5.js draw mehtod
-function draw() {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[0].length; j++) {
-      let x = sqareLength * j;
-      let y = sqareLength * i;
-      if (array[i][j] == 1) fill("#004c40");
-      else fill("#fffff0");
-      rect(x, y, sqareLength, sqareLength);
-      strokeWeight(0);
-    }
+    render();
   }
 
-  // generate next generation
-  let copyArray = copy2DArray(array);
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[0].length; j++) {
-      let numOfAliveNeighbour = getNumOfAlive(i, j, copyArray);
-      // over and underpopulation
-      if (numOfAliveNeighbour < 2 || numOfAliveNeighbour > 3) {
-        if (array[i][j] == 1) population--;
-        array[i][j] = 0;
-      } else if (numOfAliveNeighbour == 3) {
-        if (array[i][j] == 0) population++;
-        array[i][j] = 1;
+  function step() {
+    const c = cells;
+    const n = scratch;
+    for (let y = 0; y < rows; y++) {
+      const ym = ((y - 1 + rows) % rows) * cols;
+      const yc = y * cols;
+      const yp = ((y + 1) % rows) * cols;
+      for (let x = 0; x < cols; x++) {
+        const xm = (x - 1 + cols) % cols;
+        const xp = (x + 1) % cols;
+        const count =
+          c[ym + xm] + c[ym + x] + c[ym + xp] +
+          c[yc + xm] + c[yc + xp] +
+          c[yp + xm] + c[yp + x] + c[yp + xp];
+        const alive = c[yc + x];
+        n[yc + x] = alive ? (count === 2 || count === 3 ? 1 : 0) : (count === 3 ? 1 : 0);
       }
     }
+    cells = n;
+    scratch = c;
   }
-  generation++;
-  updateStats(generation, population);
-}
 
-// create custom array
-function createArray(width, height) {
-  let array = new Array(height);
-  for (let i = 0; i < array.length; i++) {
-    array[i] = new Array(width);
+  function render() {
+    ctx.fillStyle = DEAD;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = ALIVE;
+    for (let y = 0; y < rows; y++) {
+      const yc = y * cols;
+      const py = y * CELL;
+      for (let x = 0; x < cols; x++) {
+        if (cells[yc + x]) ctx.fillRect(x * CELL, py, CELL, CELL);
+      }
+    }
+    ctx.strokeStyle = STROKE;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let x = 0; x <= cols; x++) {
+      const px = x * CELL + 0.5;
+      ctx.moveTo(px, 0);
+      ctx.lineTo(px, canvas.height);
+    }
+    for (let y = 0; y <= rows; y++) {
+      const py = y * CELL + 0.5;
+      ctx.moveTo(0, py);
+      ctx.lineTo(canvas.width, py);
+    }
+    ctx.stroke();
   }
-  return array;
-}
 
-// copy array
-function copy2DArray(array) {
-  let copy = new Array(array.length);
-  for (let i = 0; i < array.length; i++) {
-    copy[i] = [...array[i]];
+  function frame(t) {
+    if (!running) return;
+    if (t - lastTick >= FRAME_INTERVAL) {
+      step();
+      render();
+      lastTick = t;
+    }
+    rafId = requestAnimationFrame(frame);
   }
-  return copy;
-}
 
-// return number of alive neighbour of given index
-function getNumOfAlive(i, j, array) {
-  let count = 0;
-  // left up corner
-  if (i != 0 && j != 0) {
-    if (array[i - 1][j - 1] == 1) count++;
+  let resizeTimer = 0;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const w = Math.floor(window.innerWidth / CELL) * CELL;
+      const h = Math.floor(window.innerHeight / CELL) * CELL;
+      if (w !== canvas.width || h !== canvas.height) init();
+    }, 250);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+    } else if (!reducedMotion) {
+      running = true;
+      lastTick = 0;
+      rafId = requestAnimationFrame(frame);
+    }
+  });
+
+  init();
+  if (!reducedMotion) {
+    rafId = requestAnimationFrame(frame);
+  } else {
+    running = false;
   }
-  // left
-  if (j != 0) {
-    if (array[i][j - 1] == 1) count++;
-  }
-  // left down corner
-  if (i != array.length - 1 && j != 0) {
-    if (array[i + 1][j - 1] == 1) count++;
-  }
-  // down
-  if (i != array.length - 1) {
-    if (array[i + 1][j] == 1) count++;
-  }
-  // right down corner
-  if (i != array.length - 1 && j != array[0].length - 1) {
-    if (array[i + 1][j + 1] == 1) count++;
-  }
-  // right
-  if (j != array[0].length - 1) {
-    if (array[i][j + 1] == 1) count++;
-  }
-  // right up corner
-  if (i != 0 && j != array[0].length - 1) {
-    if (array[i - 1][j + 1] == 1) count++;
-  }
-  // up
-  if (i != 0) {
-    if (array[i - 1][j] == 1) count++;
-  }
-  return count;
-}
+})();
