@@ -17,11 +17,11 @@
 }
 \urlstyle{same}
 
-\definecolor{VividPurple}{HTML}{008080}
+\definecolor{Teal}{HTML}{008080}
 \definecolor{SlateGrey}{HTML}{2E2E2E}
 \definecolor{LightGrey}{HTML}{666666}
-\colorlet{heading}{VividPurple}
-\colorlet{accent}{VividPurple}
+\colorlet{heading}{Teal}
+\colorlet{accent}{Teal}
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{LightGrey}
 
@@ -34,6 +34,24 @@
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
 }
+
+\renewcommand{\namefont}{\LARGE\bfseries}
+\renewcommand{\taglinefont}{\normalsize\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\makeatletter
+\renewcommand{\makecvheader}{%
+  \begingroup
+    \begin{minipage}{\linewidth}%
+    \raggedright%
+    {\namefont\color{name}\MakeUppercase{\@name}\par}
+    \smallskip
+    {\taglinefont\color{tagline}\@tagline\par}
+    \smallskip
+    {\personalinfofont\@personalinfo\par}
+    \end{minipage}\par%
+  \endgroup
+}
+\makeatother
 
 \begin{document}
 
@@ -56,16 +74,16 @@
 \begin{paracol}{1}
 
 \cvsection{Profile}
-Versatile \textbf{Full-Stack Software Engineer} with a backend focus, building end-to-end solutions across the stack. Proficient in \textbf{.NET}, \textbf{Python}, and modern \textbf{JavaScript} frameworks like \textbf{React} and \textbf{Angular}. Experienced with event-driven \textbf{microservices}, cloud-native \textbf{AWS} deployments, and container orchestration with \textbf{Docker} and \textbf{Kubernetes}.
+\textbf{Full-Stack Software Engineer} with a backend focus, building end-to-end solutions in \textbf{.NET}, \textbf{Python}, and modern \textbf{JavaScript} frameworks like \textbf{React} and \textbf{Angular}. Experienced with event-driven \textbf{microservices}, \textbf{AWS} deployments, and \textbf{Docker}/\textbf{Kubernetes} orchestration.
 
 \cvsection{Experience}
 
 \cvevent{Software Engineer}{\href{https://www.octopusplus.com}{SAN TSG}}{Dec 2024 -- Present}{Antalya, Turkiye}
 \begin{itemize}
-  \item Built a tourism platform (excursion, flight, hotel booking) using an event-driven \textbf{microservices architecture} in \textbf{.NET}, handling end-to-end booking flows.
-  \item Architected and deployed the core \textbf{MCP (Model Context Protocol)} server in \textbf{Python/Flask}, deployed to \textbf{AWS ECR}. Built a \textbf{RAG} service for technical documentation queries.
-  \item Implemented \textbf{Dapr} sidecar for pub/sub with \textbf{Redis} and \textbf{RabbitMQ} across distributed services on \textbf{AWS} using \textbf{Docker}, \textbf{Kubernetes}, and CI/CD pipelines.
-  \item Built an automated metrics collection service (\textbf{Bitbucket}, \textbf{JIRA}, worklogs) with email reports.
+  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, deploy) in a 30-service tourism platform (booking, hotel, payment, operation) in \textbf{.NET 10}, with \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), and \textbf{Dapr} pub/sub over \textbf{RabbitMQ}.
+  \item Polyglot persistence: \textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}. Instrumented with \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
+  \item Architected and deployed an \textbf{MCP (Model Context Protocol)} server and a \textbf{RAG} service in \textbf{Python/Flask} to \textbf{AWS ECR}; built a \textbf{Bitbucket}/\textbf{JIRA} metrics service.
+  \item Shipped to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ CodeBuild $\rightarrow$ ECR $\rightarrow$ \textbf{Kustomize} $\rightarrow$ \textbf{ArgoCD}).
 \end{itemize}
 
 \divider
@@ -96,27 +114,28 @@ Versatile \textbf{Full-Stack Software Engineer} with a backend focus, building e
 {\small\vspace{2pt}
 \begin{tabular}{p{0.18\linewidth} p{0.8\linewidth}}
 \textbf{Languages}      & Python, C\#, JavaScript/TypeScript \\
-\textbf{Frontend}      & React, Angular, HTML/CSS \\
+\textbf{Frontend}      & React, Angular, Next.js, Tailwind \\
 \textbf{Backend}       & .NET, Flask, Node.js, gRPC \\
 \textbf{AI / LLM}        & LangChain, LangGraph, llama-cpp, ChromaDB, FastAPI \\
 \textbf{Cloud \& DevOps} & AWS (ECR, ECS, Lambda, S3), Docker, Kubernetes, CI/CD \\
 \textbf{Data}          & RabbitMQ, Redis, PostgreSQL, MongoDB \\
 \textbf{Architecture}  & REST APIs, Event-Driven Microservices, Dapr, Clean Architecture, Multi-Tenant \\
-\textbf{Tools}         & Vim, Tmux, Claude Code, OpenCode, VS Code \\
+\textbf{Tools}         & Git, Linux, Vim, Tmux, Claude Code, VS Code \\
 \end{tabular}\smallskip
+}
 
 \cvsection{Projects}
 \textbf{Nand2Tetris} — \href{https://github.com/arinmis/nand2tetris}{github.com/arinmis/nand2tetris} \\
-HDL, Python, Assembly & Built a full computer system from boolean gates to a high-level language (Jack).
+HDL, Python, Assembly — Built a full computer system from boolean gates to a high-level language (Jack).
 
 \textbf{Tiro} — \href{https://tiro.legal}{tiro.legal} \\
-Python, FastAPI, Electron, React, SQLite, ChromaDB & Desktop legal case manager with built-in local LLM (RAG) for lawyers. Cross-platform executable via PyInstaller.
+Python, FastAPI, Electron, React, SQLite, ChromaDB — Desktop legal case manager with built-in local LLM (RAG) for lawyers. Cross-platform executable via PyInstaller.
 
-\textbf{O-Port} — \href{https://o-pt-pt.com}{o-pt-pt.com} \\
-Next.js, React, PostgreSQL, Prisma, Tailwind & Multi-platform PWA CRM for personal trainers with multi-tenant support.
+\textbf{o-pt-pt} — \href{https://o-pt-pt.com}{o-pt-pt.com} \\
+Next.js, React, Tamagui, Prisma, PostgreSQL — Multi-tenant SaaS for personal trainers to manage customers, workout plans, exercises, and progress tracking. Cross-platform UI (web + native) via Tamagui.
 
-\textbf{CSE Akdeniz} — \href{https://github.com/arinmis/cse-akdeniz}{github.com/arinmis/cse-akdeniz} \\
-Algorithms, OS, DB, ML, AI, Security & University coursework across 8 semesters.
+\cvsection{Education}
+\textbf{B.Sc. Computer Engineering}, Akdeniz University, Antalya \hfill 2019 -- 2024
 
 \end{paracol}
 \end{document}

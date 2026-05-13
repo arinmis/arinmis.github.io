@@ -289,7 +289,7 @@
   {\color{subheading}\cvsubsectionfont{#1}\par}\smallskip%
 }
 
-\newcommand{\cvsubsection}[1]{%
+\renewcommand{\cvsubsection}[1]{%
   \smallskip%
   {\color{subheading}\cvsubsectionfont{#1}\par}\medskip
 }

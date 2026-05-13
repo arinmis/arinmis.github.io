@@ -17,11 +17,11 @@
 }
 \urlstyle{same}
 
-\definecolor{VividPurple}{HTML}{008080}
+\definecolor{Teal}{HTML}{008080}
 \definecolor{SlateGrey}{HTML}{2E2E2E}
 \definecolor{LightGrey}{HTML}{666666}
-\colorlet{heading}{VividPurple}
-\colorlet{accent}{VividPurple}
+\colorlet{heading}{Teal}
+\colorlet{accent}{Teal}
 \colorlet{emphasis}{SlateGrey}
 \colorlet{body}{LightGrey}
 
@@ -34,6 +34,24 @@
   \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
 }
+
+\renewcommand{\namefont}{\LARGE\bfseries}
+\renewcommand{\taglinefont}{\normalsize\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\makeatletter
+\renewcommand{\makecvheader}{%
+  \begingroup
+    \begin{minipage}{\linewidth}%
+    \raggedright%
+    {\namefont\color{name}\MakeUppercase{\@name}\par}
+    \smallskip
+    {\taglinefont\color{tagline}\@tagline\par}
+    \smallskip
+    {\personalinfofont\@personalinfo\par}
+    \end{minipage}\par%
+  \endgroup
+}
+\makeatother
 
 \begin{document}
 
@@ -56,7 +74,7 @@
 \begin{paracol}{1}
 
 \cvsection{Profile}
-AI-focused \textbf{Software Engineer} with a strong foundation in \textbf{machine learning} and \textbf{LLM integrations}. Building production AI systems using \textbf{Python}, \textbf{LangChain}, \textbf{RAG}, and \textbf{MCP (Model Context Protocol)}. Experienced with cloud-native deployments on \textbf{AWS}, distributed systems with \textbf{Dapr}, and scalable APIs in \textbf{.NET} and \textbf{Flask}. Passionate about applying AI to solve real-world problems across the full stack.
+\textbf{AI Engineer} building production LLM systems with \textbf{Python}, \textbf{LangChain}, \textbf{RAG}, and \textbf{MCP (Model Context Protocol)}. Strong foundation in \textbf{.NET} microservices, \textbf{AWS} cloud-native deployments, and distributed systems with \textbf{Dapr}. Currently shipping agentic systems over enterprise documentation.
 
 \cvsection{Experience}
 
@@ -64,7 +82,8 @@ AI-focused \textbf{Software Engineer} with a strong foundation in \textbf{machin
 \begin{itemize}
   \item Architected and deployed an \textbf{MCP (Model Context Protocol)} AI Agent server in \textbf{Python/Flask} to \textbf{AWS ECR}, and a production \textbf{RAG} service for technical documentation using \textbf{LangChain} and \textbf{ChromaDB}.
   \item Developed an automated metrics collection service (\textbf{Bitbucket}, \textbf{JIRA}) with email automation in \textbf{Python}, deployed to \textbf{AWS ECR}.
-  \item Contributed to the tourism microservices platform in \textbf{.NET} with \textbf{Dapr} pub/sub, \textbf{Docker}, \textbf{Kubernetes}, and \textbf{AWS}.
+  \item Designed, built, and deployed \textbf{5 production .NET 10 microservices} end-to-end (API, schema, tests, deploy) in a 30-service tourism platform, using \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), and \textbf{Dapr} pub/sub.
+  \item Shipped to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ ECR $\rightarrow$ \textbf{ArgoCD}) behind \textbf{Kong Gateway}, with \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo} observability.
 \end{itemize}
 
 \divider
@@ -85,33 +104,34 @@ AI-focused \textbf{Software Engineer} with a strong foundation in \textbf{machin
 
 \cvevent{Frontend Developer}{\href{https://linarit.com/img/pqm-flyer.pdf}{Linarit}}{Feb 2022 -- Sep 2022}{Antalya, Turkiye}
 \begin{itemize}
-  \item Developed key features for the \textbf{Linarit PQM Industrial IoT platform} using a microservices architecture (\textbf{5 services} + \textbf{IoT edge devices}), building \textbf{React} UI components with real-time \textbf{gRPC} data visualization and client-side caching.
+  \item Built \textbf{React} UI with real-time \textbf{gRPC} visualization for the Linarit PQM Industrial IoT platform (5 microservices, IoT edge devices).
 \end{itemize}
 
 \cvsection{Skills}
 {\small\vspace{2pt}
 \begin{tabular}{p{0.18\linewidth} p{0.8\linewidth}}
-\textbf{Languages}      & Python, C\#, JavaScript \\
-\textbf{AI / LLM}       & LangChain, LangGraph, Ollama, MCP, RAG, Vector Databases, LLM fine-tuning \\
+\textbf{Languages}      & Python, C\#, JavaScript/TypeScript \\
+\textbf{AI / LLM}       & LangChain, LangGraph, MCP, RAG, OpenAI/Anthropic APIs, Ollama, ChromaDB, Embeddings, Prompt Engineering \\
 \textbf{Frameworks}    & Flask, .NET, FastAPI \\
 \textbf{Cloud \& DevOps} & AWS (ECR, ECS, Lambda, S3), Docker, Kubernetes \\
 \textbf{Data}          & RabbitMQ, Redis, PostgreSQL, ChromaDB \\
-\textbf{Architecture}   & REST APIs, Event-Driven Microservices, Dapr, Clean Architecture, Multi-Tenant \\
-\textbf{Tools}          & Vim, Tmux, Claude Code, OpenCode, VS Code \\
+\textbf{Architecture}   & REST APIs, Event-Driven Microservices, Dapr, Clean Architecture \\
+\textbf{Tools}          & Git, Linux, Vim, Tmux, Claude Code, VS Code \\
 \end{tabular}\smallskip
+}
 
 \cvsection{Projects}
 \textbf{Nand2Tetris} — \href{https://github.com/arinmis/nand2tetris}{github.com/arinmis/nand2tetris} \\
-HDL, Python, Assembly & A full computer system implementation from boolean gates to a high-level language.
+HDL, Python, Assembly — A full computer system implementation from boolean gates to a high-level language.
 
 \textbf{Tiro} — \href{https://tiro.legal}{tiro.legal} \\
-Python, FastAPI, Electron, React, SQLite, ChromaDB, llama-cpp & A desktop app for lawyers to manage case files with built-in local LLM (RAG) for document analysis. Ships as a cross-platform executable.
+Python, FastAPI, Electron, React, SQLite, ChromaDB, llama-cpp — A desktop app for lawyers to manage case files with built-in local LLM (RAG) for document analysis. Ships as a cross-platform executable.
 
-\textbf{O-Port} — \href{https://o-pt-pt.com}{o-pt-pt.com} \\
-Next.js, React, PostgreSQL, Prisma, Tailwind CSS & A multi-platform PWA CRM for personal trainers to manage clients, scheduling, and progress tracking across fitness and wellness programs with multi-tenant support.
+\textbf{o-pt-pt} — \href{https://o-pt-pt.com}{o-pt-pt.com} \\
+Next.js, React, Tamagui, Prisma, PostgreSQL — Multi-tenant SaaS for personal trainers to manage customers, workout plans, exercises, and progress tracking. Cross-platform UI (web + native) via Tamagui.
 
-\textbf{CSE Akdeniz} — \href{https://github.com/arinmis/cse-akdeniz}{github.com/arinmis/cse-akdeniz} \\
-Data Structures, Algorithms, Operating Systems, Database Management, Computer Networks, Machine Learning, Artificial Intelligence, Software Engineering, Information System Security & University coursework repository spanning 8 semesters of algorithms, systems, AI, and engineering coursework.
+\cvsection{Education}
+\textbf{B.Sc. Computer Engineering}, Akdeniz University, Antalya \hfill 2019 -- 2024
 
 \end{paracol}
 \end{document}
