@@ -27,8 +27,8 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.9in}
-\addtolength{\textheight}{1.7in}
+\addtolength{\topmargin}{-1.0in}
+\addtolength{\textheight}{1.8in}
 
 \urlstyle{rm}
 \raggedright
@@ -38,24 +38,24 @@
 \titleformat{\section}{%
   \normalfont\large\bfseries\color{accent}%
 }{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
-\titlespacing*{\section}{0pt}{10pt}{4pt}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
 
 \newcommand{\resumeSubheading}[4]{%
-  \vspace{3pt}%
+  \vspace{2pt}%
   \noindent{\bfseries #1}\hfill {\small #4}\par%
   \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
   \vspace{1pt}%
 }
 
 \newcommand{\resumeProject}[3]{%
-  \vspace{3pt}%
+  \vspace{2pt}%
   \noindent{\bfseries #1}\hfill {\small #3}\par%
   \noindent{\itshape\color{subtle} #2}\par%
   \vspace{1pt}%
 }
 
 \setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
-\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=0pt, topsep=0pt, parsep=0pt}
 
 \begin{document}
 
@@ -65,7 +65,7 @@
   {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
   {\small\color{subtle} Antalya, Turkiye \,$\cdot$\, BSc Computer Engineering, Akdeniz University}
 \end{center}
-\vspace{2pt}
+\vspace{1pt}
 
 %-----------SUMMARY-----------------
 \section{Summary}
@@ -77,8 +77,8 @@ Backend-focused \textbf{Software Engineer} building \textbf{scalable APIs} and \
 
 \resumeSubheading{SAN TSG (OctopusPlus)}{Antalya, Turkiye}{Backend Software Engineer}{Dec 2024 -- Present}
 \begin{itemize}
-  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, infra) in a 30-service tourism platform (booking, hotel, payment, accounting, operation) --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), \textbf{FluentValidation}; integrated via \textbf{Dapr} sidecars (\textbf{RabbitMQ} pub/sub) with polyglot persistence (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}).
-  \item Deployed to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ CodeBuild $\rightarrow$ ECR $\rightarrow$ \textbf{Kustomize} $\rightarrow$ \textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
+  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, infra) in a 30-service tourism platform --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), \textbf{Dapr} pub/sub over \textbf{RabbitMQ}, polyglot persistence (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}).
+  \item Deployed to \textbf{AWS EKS} via GitOps (\textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
   \item Mentored 2 interns and hired a CS student to a part-time engineer role.
   \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} --- a production \textbf{RAG} service over internal API documentation --- and an \textbf{MCP (Model Context Protocol)} AI Agent server in \textbf{Python/Flask}, deployed to \textbf{AWS ECR} (\textbf{LangChain}, \textbf{ChromaDB}).
   \item Developed an automated metrics collection service (\textbf{Bitbucket}, \textbf{JIRA}) with email automation in \textbf{Python}, deployed to \textbf{AWS ECR}.
@@ -92,6 +92,11 @@ Backend-focused \textbf{Software Engineer} building \textbf{scalable APIs} and \
 \resumeSubheading{P.I. Works}{Remote, Istanbul, Turkiye}{Full Stack Software Developer}{Jun 2023 -- Sep 2024}
 \begin{itemize}
   \item Developed new features for an \textbf{Angular-.NET} enterprise telco platform. Refactored core billing modules, improving API response times.
+\end{itemize}
+
+\resumeSubheading{Sentaks}{Antalya, Turkiye}{Co-founder}{Sep 2021 -- Feb 2022}
+\begin{itemize}
+  \item Built an AI-powered mobile app for background noise removal using \textbf{FFmpeg}, with a \textbf{Flask} backend on \textbf{Google Cloud} and a \textbf{Flutter} client. Applied to Y Combinator.
 \end{itemize}
 
 \resumeSubheading{Linarit}{Antalya, Turkiye}{Frontend Developer}{Feb 2022 -- Sep 2022}
