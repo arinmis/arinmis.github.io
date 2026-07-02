@@ -1,0 +1,135 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}[
+  UprightFont = *-Roman,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Ligatures = TeX,
+]
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+\definecolor{accent}{HTML}{1A2733}
+\definecolor{subtle}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{1.7in}
+
+\urlstyle{rm}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{%
+  \normalfont\large\bfseries\color{accent}%
+}{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{3pt}%
+  \noindent{\bfseries #1}\hfill {\small #4}\par%
+  \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
+  \vspace{1pt}%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{3pt}%
+  \noindent{\bfseries #1}\hfill {\small #3}\par%
+  \noindent{\itshape\color{subtle} #2}\par%
+  \vspace{1pt}%
+}
+
+\setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=1pt, topsep=1pt, parsep=0pt}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
+  {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
+  {\small\color{subtle} Antalya, Turkiye \,$\cdot$\, BSc Computer Engineering, Akdeniz University}
+\end{center}
+\vspace{2pt}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Backend-focused \textbf{Software Engineer} building \textbf{scalable APIs} and \textbf{event-driven microservices} in \textbf{.NET}. Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, infra) in a \textbf{30-service} tourism platform (booking, hotel, payment, accounting, operation) --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS}, \textbf{Dapr}. Experienced with cloud-native \textbf{AWS} deployments using \textbf{Docker}, \textbf{Kubernetes}, and \textbf{CI/CD}. Focused on reliability and shipping production-grade systems.
+
+%-----------SKILLS-----------------
+\section{Skills}
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=14pt, label=\textbullet, itemsep=1pt, topsep=2pt, parsep=0pt]
+    \item Python, C\#, JavaScript / TypeScript
+    \item .NET, Flask, Angular, React, Node.js
+    \item LangChain, LangGraph, ChromaDB, FastAPI
+    \item AWS (ECR, EKS, ECS, Lambda, S3)
+    \item Docker, Kubernetes, Helm, CI/CD
+    \item RabbitMQ, Redis, PostgreSQL, MongoDB
+    \item REST APIs, Event-Driven Microservices, Dapr
+    \item gRPC, CQRS, Clean Architecture, Multi-Tenant
+\end{itemize}
+\end{multicols}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+
+\resumeSubheading{SAN TSG (OctopusPlus)}{Antalya, Turkiye}{Backend Software Engineer}{Dec 2024 -- Present}
+\begin{itemize}
+  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, infra) in a 30-service tourism platform (booking, hotel, payment, accounting, operation) --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), \textbf{FluentValidation}; integrated via \textbf{Dapr} sidecars (\textbf{RabbitMQ} pub/sub) with polyglot persistence (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}).
+  \item Deployed to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ CodeBuild $\rightarrow$ ECR $\rightarrow$ \textbf{Kustomize} $\rightarrow$ \textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
+  \item Mentored 2 interns and hired a CS student to a part-time engineer role.
+  \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} --- a production \textbf{RAG} service over internal API documentation --- and an \textbf{MCP (Model Context Protocol)} AI Agent server in \textbf{Python/Flask}, deployed to \textbf{AWS ECR} (\textbf{LangChain}, \textbf{ChromaDB}).
+  \item Developed an automated metrics collection service (\textbf{Bitbucket}, \textbf{JIRA}) with email automation in \textbf{Python}, deployed to \textbf{AWS ECR}.
+\end{itemize}
+
+\resumeSubheading{Mavi ArGe}{Antalya, Turkiye}{Backend Software Engineer (Contract)}{Oct 2024 -- Dec 2024}
+\begin{itemize}
+  \item Developed \textbf{.NET} REST APIs for an EV charging station Fleet Management \textbf{IoT} system (\textbf{TÜBİTAK} project), including a rule-based engine for battery telemetry and monitoring dashboards.
+\end{itemize}
+
+\resumeSubheading{P.I. Works}{Remote, Istanbul, Turkiye}{Full Stack Software Developer}{Jun 2023 -- Sep 2024}
+\begin{itemize}
+  \item Developed new features for an \textbf{Angular-.NET} enterprise telco platform. Refactored core billing modules, improving API response times.
+\end{itemize}
+
+\resumeSubheading{Linarit}{Antalya, Turkiye}{Frontend Developer}{Feb 2022 -- Sep 2022}
+\begin{itemize}
+  \item Built \textbf{React} UI with real-time \textbf{gRPC} visualization for the Linarit PQM Industrial IoT platform (5 microservices, IoT edge devices).
+\end{itemize}
+
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeProject{B.Sc. Computer Engineering}{Akdeniz University, Antalya}{2019 -- 2024}
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeProject{Tiro}{\href{https://tiro.legal}{tiro.legal}}{}
+\begin{itemize}
+  \item Desktop app for lawyers to manage case files with built-in local LLM (RAG) for document analysis. Python, FastAPI, Electron, React, SQLite, ChromaDB, llama-cpp. Cross-platform executable.
+\end{itemize}
+
+\resumeProject{FitBrand}{\href{https://fitbrand.app}{fitbrand.app}}{}
+\begin{itemize}
+  \item Multi-tenant SaaS for personal trainers to manage customers, workout plans, exercises, and progress tracking with built-in AI features using MCP tools. Next.js, React, Tamagui, Prisma, PostgreSQL. Cross-platform UI (web + native) via Tamagui.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textit{Tools:} Git, Linux, Vim, Tmux, VS Code, Claude Code, opencode
+
+\end{document}
