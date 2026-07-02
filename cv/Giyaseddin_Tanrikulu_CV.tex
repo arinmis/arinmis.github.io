@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}[
+  UprightFont = *-Roman,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Ligatures = TeX,
+]
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+\definecolor{accent}{HTML}{1A2733}
+\definecolor{subtle}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{1.7in}
+
+\urlstyle{rm}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{%
+  \normalfont\large\bfseries\color{accent}%
+}{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{3pt}%
+  \noindent{\bfseries #1}\hfill {\small #4}\par%
+  \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
+  \vspace{1pt}%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{3pt}%
+  \noindent{\bfseries #1}\hfill {\small #3}\par%
+  \noindent{\itshape\color{subtle} #2}\par%
+  \vspace{1pt}%
+}
+
+\setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=1pt, topsep=1pt, parsep=0pt}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent} Gıyaseddin Tanrıkulu}\\[4pt]
+  {\small\color{subtle} gysddn@gmail.com \, $\bullet$ \, +90 535 053 7466 \, $\bullet$ \, github.com/gysddn \, $\bullet$ \, gysddn.github.io}\\[2pt]
+  {\small\color{subtle} BSc Computer Science, Akdeniz University \,$\cdot$\, GPA 3.37}
+\end{center}
+\vspace{2pt}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Systems developer in C, C++20, and Go, working close to hardware. Built a bare-metal 32-bit x86 kernel from scratch. Real-time embedded C/C++ on aerospace boards at Turkish Aerospace; Linux and Windows ports of a browser-based x86\_64 emulator at Progrium; C++/LLVM front-end work on Google's Carbon Language; end-to-end ownership of a remote desktop product at PrivanAI. Comfortable across the assembly, driver, build, and kernel-adjacent layers.
+
+%-----------SKILLS-----------------
+\section{Skills}
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=14pt, label=\textbullet, itemsep=1pt, topsep=2pt, parsep=0pt]
+    \item C, C++11/20
+    \item Go (concurrent systems, CGo at C boundaries)
+    \item x86 assembly (registers, port I/O, calling conventions)
+    \item Bare-metal / freestanding C++ (no libc)
+    \item Linux systems programming and internals
+    \item Cross-compilation toolchains (binutils, GCC, CMake, Ninja)
+    \item Hardware-accelerated media (VAAPI, NVENC)
+    \item Memory management and performance analysis
+    \item Networking: TCP/IP, WebSocket, WebRTC
+    \item GStreamer, X11/Xorg
+    \item Docker (multi-stage, GPU variants)
+    \item QEMU, GDB, Git
+\end{itemize}
+\end{multicols}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+
+\resumeSubheading{PrivanAI}{Miami, FL (Remote)}{Freelance Developer (Go / C / Python)}{Oct 2024 -- Present}
+\begin{description}[font=$\bullet$]
+  \item Built and owned two generations of the company's remote desktop product: a first-generation VNC client integrated into the app, then a full WebRTC re-architecture covering both server and integrated client
+  \item Built the GStreamer-driven media pipeline and the X11/Xorg screen capture and input injection layer, writing CGo bindings from scratch to keep performance-critical paths off Go's slow path
+  \item Implemented hardware-accelerated video encoding across VAAPI (Intel), NVENC (NVIDIA), and a libvpx CPU fallback, selectable at runtime
+  \item Built an agentic AI assistant in Go integrating a local LLM with the Model Context Protocol: tool-calling loop driving Chromium browser automation, with a RAG pipeline backed by a vector database
+\end{description}
+
+\resumeSubheading{Progrium Technology Company}{Austin, TX (Remote)}{Freelance Developer (Go / C)}{Sep 2024 -- Jan 2025}
+\begin{description}[font=$\bullet$]
+  \item Developed Linux and Windows ports of a browser-based x86\_64 emulator
+  \item Built the Linux port of a cross-platform UI library spanning Go and C, including fixing bugs across the Go/C bridge
+\end{description}
+
+\resumeSubheading{Carbon Language}{Open Source}{C++/LLVM Contributor}{Feb 2024 -- Jul 2024}
+\begin{description}[font=$\bullet$]
+  \item Contributed new language features to the front-end compiler in C++/LLVM
+  \item Contributed to IR format design and front-end compiler architecture
+\end{description}
+
+\resumeSubheading{Turkish Aerospace}{Antalya}{C/C++ Developer}{Mar 2022 -- Oct 2023}
+\begin{description}[font=$\bullet$]
+  \item Wrote and debugged C++11 and C code on embedded boards with hard real-time constraints
+  \item Set up and debugged cross-compilation environments and build configurations across multiple targets
+  \item Integrated legacy codebases into active projects and managed cross-team patch review and repository synchronization
+\end{description}
+
+\resumeSubheading{Finartz}{Istanbul (Remote)}{C++ Developer (Internship)}{Aug 2021 -- Oct 2021}
+\begin{description}[font=$\bullet$]
+  \item Designed and built the company's next product end-to-end: a High-Frequency Trading system in C++11 over the FIX protocol, with a kdb+/q time-series store for trading data
+\end{description}
+
+\resumeSubheading{Akdeniz University}{Antalya}{System Administrator}{Nov 2019 -- Mar 2020}
+\begin{description}[font=$\bullet$]
+  \item Installed, configured, and maintained the university's Open Access Repository (DSpace) on CentOS; diagnosed and resolved system bugs across multiple setups
+\end{description}
+
+\resumeSubheading{Milis Linux Distribution}{Antalya}{Linux Developer (Internship)}{Jun 2019 -- Dec 2019}
+\begin{description}[font=$\bullet$]
+  \item Co-designed and implemented a package management system from scratch; packaged software for the distribution and set up team infrastructure
+\end{description}
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeProject{x86 Operating System}{\href{https://github.com/gysddn/os}{github.com/gysddn/os}}{Oct 2021 -- Present}
+\begin{description}[font=$\bullet$]
+  \item Built a bare-metal 32-bit x86 kernel in C++20 and C, freestanding without libc, with full hardware register abstraction over VGA, framebuffer, and serial I/O
+  \item Built a custom i686-elf cross-compilation toolchain from source (binutils + GCC) and a CMake/Ninja build with a custom toolchain file
+  \item Migrated from BIOS/GRUB to UEFI/Limine with GPT disk image generation; wrote a \href{https://gysddn.github.io}{technical blog post} documenting the process
+\end{description}
+
+\end{document}
