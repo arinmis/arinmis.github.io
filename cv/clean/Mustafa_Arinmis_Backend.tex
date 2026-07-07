@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Termes}[Ligatures=TeX]
@@ -21,24 +21,25 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.5in}
-\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.55in}
+\addtolength{\textheight}{1.85in}
 
 \urlstyle{rm}
 \raggedright
-\linespread{0.85}
+\linespread{0.9}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0in}
 
 \titleformat{\section}{%
   \normalfont\large\bfseries\color{accent}%
 }{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
-\titlespacing*{\section}{0pt}{4pt}{0pt}
+\titlespacing*{\section}{0pt}{5pt}{1pt}
 
 \newcommand{\resumeSubheading}[4]{%
-  \vspace{1pt}%
+  \vspace{2pt}%
   \noindent{\bfseries #1}\hfill {\small #4}\par%
   \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
+  \vspace{1pt}%
 }
 
 \newcommand{\resumeProject}[3]{%
