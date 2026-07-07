@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{altacv}
 
-\geometry{left=1cm,right=1cm,top=1cm,bottom=1cm,columnsep=0.8cm}
+\geometry{left=1cm,right=1cm,top=1.5cm,bottom=1cm,columnsep=0.8cm}
 
 \usepackage{paracol}
 \usepackage[default]{lato}
@@ -74,22 +74,23 @@
 \begin{paracol}{1}
 
 \cvsection{Profile}
-\textbf{Full-Stack Software Engineer} with a backend focus, building end-to-end solutions in \textbf{.NET}, \textbf{Python}, and modern \textbf{JavaScript} frameworks like \textbf{React} and \textbf{Angular}. Experienced with event-driven \textbf{microservices}, \textbf{AWS} deployments, and \textbf{Docker}/\textbf{Kubernetes} orchestration.
+\textbf{Full-Stack Software Engineer} building end-to-end products in \textbf{.NET}, \textbf{Python}, \textbf{React}/\textbf{Angular}. Experienced with event-driven \textbf{microservices}, \textbf{AWS}, and \textbf{Docker}/\textbf{Kubernetes}.
 
 \cvsection{Experience}
 
-\cvevent{Software Engineer}{\href{https://www.octopusplus.com}{SAN TSG}}{Dec 2024 -- Present}{Antalya, Turkiye}
+\cvevent{Full Stack Software Engineer}{\href{https://www.octopusplus.com}{SAN TSG}}{Dec 2024 -- Present}{Antalya, Turkiye}
 \begin{itemize}
-  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, deploy) in a 30-service tourism platform (booking, hotel, payment, operation) in \textbf{.NET 10}, with \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), and \textbf{Dapr} pub/sub over \textbf{RabbitMQ}.
-  \item Polyglot persistence: \textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}. Shipped to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ ECR $\rightarrow$ \textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
-  \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} (RAG over API docs) and an \textbf{MCP} server in \textbf{Python/Flask} to \textbf{AWS ECR}; built a \textbf{Bitbucket}/\textbf{JIRA} metrics service. Mentored 2 interns and hired a CS student to a part-time engineer role.
+  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, deploy) in a 30-service tourism platform --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), \textbf{Dapr} pub/sub over \textbf{RabbitMQ}, polyglot persistence (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}).
+  \item Deployed to \textbf{AWS EKS} via GitOps (\textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
+  \item Mentored 2 interns and hired a CS student to a part-time engineer role.
+  \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} --- a production \textbf{RAG} service with web UI and \textbf{MCP} server in \textbf{Python/Flask} to \textbf{AWS ECR}; built a \textbf{Bitbucket}/\textbf{JIRA} metrics service.
 \end{itemize}
 
 \divider
 
-\cvevent{Backend Software Engineer (Contract)}{Mavi ArGe}{Oct 2024 -- Dec 2024}{Antalya, Turkiye}
+\cvevent{Full Stack Software Engineer (Contract)}{Mavi ArGe}{Oct 2024 -- Dec 2024}{Antalya, Turkiye}
 \begin{itemize}
-  \item Developed \textbf{.NET} REST APIs for an EV charging station Fleet Management \textbf{IoT} system (\textbf{TÜBİTAK} project); built a rule-based engine processing battery telemetry to trigger real-time owner notifications.
+  \item Built a \textbf{full-stack} EV charging Fleet Management \textbf{IoT} system (\textbf{TÜBİTAK} project): \textbf{.NET} REST APIs, a rule-based engine processing battery telemetry, and monitoring dashboards with real-time owner notifications.
 \end{itemize}
 
 \divider
@@ -101,9 +102,18 @@
 
 \divider
 
-\cvevent{Frontend Developer}{\href{https://linarit.com/img/pqm-flyer.pdf}{Linarit}}{Feb 2022 -- Sep 2022}{Antalya, Turkiye}
+\cvevent{Founder Software Developer}{AudioHealer}{Sep 2021 -- Feb 2022}{Antalya, Turkiye}
 \begin{itemize}
-  \item Built the \textbf{Linarit PQM Industrial IoT platform} frontend using \textbf{React} with real-time \textbf{gRPC} data visualization for a \textbf{5-service microservices} architecture with \textbf{IoT edge devices}.
+  \item Built \href{https://www.audiohealer.com}{AudioHealer}, a full-stack AI-powered audio enhancement platform: \textbf{DTLN} (TensorFlow/Keras) neural network for real-time noise suppression, \textbf{FFmpeg} 18-band EQ and EBU R128 loudness normalization pipeline, \textbf{Flask} backend on \textbf{Google Cloud Run}, \textbf{Svelte} web frontend, and \textbf{Flutter} mobile client.
+  \item \textbf{Firebase} Auth + \textbf{Firestore}, Google Cloud Storage, freemium credit system with \textbf{iyzico} payment integration, multi-language support.
+  \item Applied to Y Combinator.
+\end{itemize}
+
+\divider
+
+\cvevent{Full Stack Developer}{\href{https://linarit.com/img/pqm-flyer.pdf}{Linarit}}{Feb 2022 -- Sep 2022}{Antalya, Turkiye}
+\begin{itemize}
+  \item Developed both frontend and backend integrations for the \textbf{Linarit PQM Industrial IoT platform}: \textbf{React} UI with real-time \textbf{gRPC} data visualization, interfacing with a \textbf{5-service microservices} architecture and IoT edge devices.
   \item Implemented client-side caching and performance optimizations, reducing dashboard load times for large datasets.
 \end{itemize}
 

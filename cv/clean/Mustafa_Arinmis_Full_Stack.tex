@@ -27,8 +27,8 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-1.05in}
-\addtolength{\textheight}{1.85in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{2.0in}
 
 \urlstyle{rm}
 \raggedright
@@ -69,24 +69,22 @@
 
 %-----------SUMMARY-----------------
 \section{Summary}
-\textbf{Full-Stack Software Engineer} with an \textbf{E2E product ownership mindset} and a backend focus, building end-to-end solutions in \textbf{.NET}, \textbf{Python}, and modern \textbf{JavaScript} frameworks like \textbf{React} and \textbf{Angular}. Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, observability, infra) in a \textbf{30-service} tourism platform (booking, hotel, payment, accounting, operation) --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS}, \textbf{Dapr}. Experienced with event-driven \textbf{microservices}, \textbf{AWS} deployments, and \textbf{Docker}/\textbf{Kubernetes} orchestration.
+\textbf{Full-Stack Software Engineer} building end-to-end solutions across \textbf{.NET}, \textbf{Python}, \textbf{React}/\textbf{Angular}. Designed and deployed \textbf{5 production microservices} in a 30-service tourism platform (\textbf{.NET 10}, \textbf{CQRS}, \textbf{Dapr}, \textbf{AWS EKS}). Experienced with event-driven architecture, \textbf{AWS}, and \textbf{Docker}/\textbf{Kubernetes}.
 
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
 
-\resumeSubheading{SAN TSG (OctopusPlus)}{Antalya, Turkiye}{Software Engineer}{Dec 2024 -- Present}
+\resumeSubheading{SAN TSG (OctopusPlus)}{Antalya, Turkiye}{Full Stack Software Engineer}{Dec 2024 -- Present}
 \begin{itemize}
-  \item Designed, built, and deployed \textbf{5 production microservices} end-to-end (API, schema, tests, deploy) in a 30-service tourism platform --- \textbf{.NET 10}, \textbf{Clean/Onion architecture}, \textbf{CQRS} (MediatR), \textbf{Dapr} pub/sub over \textbf{RabbitMQ}.
-  \item Polyglot persistence: \textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}. Shipped to \textbf{AWS EKS} via GitOps (\textbf{Bitbucket} $\rightarrow$ ECR $\rightarrow$ \textbf{ArgoCD}); \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo}, behind \textbf{Kong Gateway}.
+  \item Designed, built, and deployed \textbf{5 production microservices} in a 30-service tourism platform --- \textbf{.NET 10}, \textbf{CQRS}, \textbf{Dapr} pub/sub over \textbf{RabbitMQ}; polyglot persistence (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB}, \textbf{Redis}); deployed to \textbf{AWS EKS} via GitOps (\textbf{ArgoCD}), behind \textbf{Kong Gateway}.
   \item Mentored 2 interns and hired a CS student to a part-time engineer role.
-  \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} --- a production \textbf{RAG} service and \textbf{MCP (Model Context Protocol)} AI Agent server in \textbf{Python/Flask} (\textbf{LangChain}, \textbf{ChromaDB}), deployed to \textbf{AWS ECR}.
-  \item Built an automated metrics and email service in \textbf{Python} for \textbf{Bitbucket}/\textbf{JIRA}, deployed to \textbf{AWS ECR}.
+  \item Shipped \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}} RAG service with web UI and \textbf{MCP} AI server in \textbf{Python/Flask} (\textbf{LangChain}, \textbf{ChromaDB}); built a \textbf{Bitbucket}/\textbf{JIRA} metrics service --- both on \textbf{AWS ECR}.
 \end{itemize}
 
-\resumeSubheading{Mavi ArGe}{Antalya, Turkiye}{Backend Software Engineer (Contract)}{Oct 2024 -- Dec 2024}
+\resumeSubheading{Mavi ArGe}{Antalya, Turkiye}{Full Stack Software Engineer (Contract)}{Oct 2024 -- Dec 2024}
 \begin{itemize}
-  \item Developed \textbf{.NET} REST APIs for an Electric Vehicle charging station Fleet Management \textbf{IoT} system (\textbf{TÜBİTAK} project); built a rule-based engine processing battery telemetry to trigger real-time owner notifications.
+  \item Built a \textbf{full-stack} EV charging Fleet Management \textbf{IoT} system (\textbf{TÜBİTAK} project): \textbf{.NET} REST APIs, a rule-based engine processing battery telemetry, and monitoring dashboards with real-time owner notifications.
 \end{itemize}
 
 \resumeSubheading{P.I. Works}{Remote, Istanbul, Turkiye}{Full Stack Software Developer}{Jun 2023 -- Sep 2024}
@@ -94,14 +92,15 @@
   \item Developed features for an \textbf{Angular-.NET} enterprise telco platform serving thousands of network devices; refactored core billing and provisioning modules and increased unit test coverage.
 \end{itemize}
 
-\resumeSubheading{Sentaks}{Antalya, Turkiye}{Co-founder}{Sep 2021 -- Feb 2022}
+\resumeSubheading{AudioHealer}{Antalya, Turkiye}{Founder Software Developer}{Sep 2021 -- Feb 2022}
 \begin{itemize}
-  \item Built an AI-powered mobile app for background noise removal using \textbf{FFmpeg}, with a \textbf{Flask} backend on \textbf{Google Cloud} and a \textbf{Flutter} client. Applied to Y Combinator.
+  \item Built \href{https://www.audiohealer.com}{AudioHealer}, a full-stack AI audio platform: \textbf{DTLN} neural network for noise suppression, \textbf{FFmpeg} EQ/loudness pipeline, \textbf{Flask} backend on \textbf{Google Cloud Run}, \textbf{Svelte} web + \textbf{Flutter} mobile, \textbf{Firebase} Auth/\textbf{Firestore}, freemium with \textbf{iyzico} payments, multi-language.
+  \item Applied to Y Combinator.
 \end{itemize}
 
-\resumeSubheading{Linarit}{Antalya, Turkiye}{Frontend Developer}{Feb 2022 -- Sep 2022}
+\resumeSubheading{Linarit}{Antalya, Turkiye}{Full Stack Developer}{Feb 2022 -- Sep 2022}
 \begin{itemize}
-  \item Built the \textbf{Linarit PQM Industrial IoT platform} frontend using \textbf{React} with real-time \textbf{gRPC} data visualization for a \textbf{5-service microservices} architecture with \textbf{IoT edge devices}.
+  \item Developed both frontend and backend integrations for the Linarit PQM Industrial IoT platform: \textbf{React} UI with real-time \textbf{gRPC} data visualization, interfacing with a \textbf{5-service microservices} architecture and IoT edge devices.
 \end{itemize}
 
 %-----------EDUCATION-----------------
