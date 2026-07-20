@@ -1,0 +1,120 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}[
+  UprightFont = *-Roman,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Ligatures = TeX,
+]
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+\definecolor{accent}{HTML}{1A2733}
+\definecolor{subtle}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{2.5in}
+
+\urlstyle{rm}
+\raggedright
+\linespread{0.84}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{%
+  \normalfont\large\bfseries\color{accent}%
+}{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{1pt}%
+  \noindent{\bfseries #1}\hfill {\small #4}\par%
+  \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{1pt}%
+  \noindent{\bfseries #1}\hfill {\small #3}\par%
+  \noindent{\itshape\color{subtle} #2}\par%
+}
+
+\setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=0pt, topsep=0pt, parsep=0pt}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
+  {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
+  {\small\color{subtle} Antalya, Türkiye \,$\cdot$\, Bilgisayar Mühendisliği Lisans Derecesi, Akdeniz Üniversitesi}
+\end{center}
+\vspace{1pt}%-----------SUMMARY-----------------
+\section{Özet}
+Backend odaklı, \textbf{4+ yıllık yazılım mühendisliği deneyimine} ve uçtan uca ürün sahipliği yaklaşımına sahip \textbf{Yazılım Mühendisi}. CQRS, Dapr ve AWS EKS kullanarak 30'dan fazla servisten oluşan bir turizm platformunda \textbf{5 üretim C\#/.NET 10 mikroservisi} tasarlayıp devreye aldı. Bulut tabanlı mimari ile \textbf{RAG}, \textbf{MCP}, \textbf{LangChain} ve \textbf{Microsoft Semantic Kernel} prototipleri aracılığıyla yapay zeka entegrasyonu konusunda deneyimli.
+
+
+%-----------EXPERIENCE-----------------
+\section{Deneyim}
+
+\resumeSubheading{\href{https://www.santsg.com/en/products/octopus-project/}{SAN TSG (OctopusPlus)}}{Antalya, Türkiye}{Backend Yazılım Mühendisi}{Aralık 2024 -- Temmuz 2026}
+\begin{itemize}
+  \item Gezi, uçuş ve otel rezervasyonu alanlarında 30'dan fazla servisten oluşan turizm platformunda, \textbf{Clean/Onion mimarisi}, \textbf{CQRS} (MediatR) ve \textbf{FluentValidation} kullanarak \textbf{5 adet C\#/.NET 10 üretim mikroservisini} uçtan uca (API, şema, testler, gözlemlenebilirlik ve altyapı) geliştirip devreye aldı.
+  \item Mikroservis iletişimi için \textbf{Dapr} sidecar entegrasyonunu gerçekleştirdi; \textbf{RabbitMQ} üzerindeki pub/sub gibi dağıtık sistem kalıplarını, çoklu veri depolama yaklaşımıyla (\textbf{EF Core + PostgreSQL}, \textbf{MongoDB} ve durum yönetimi için \textbf{Redis}) soyutladı.
+  \item \textbf{Docker} ve \textbf{AWS EKS} üzerinde \textbf{Kubernetes} kullanarak GitOps (\textbf{ArgoCD}) ile ölçeklenebilir dağıtımlar sağladı; \textbf{Kong Gateway} arkasında \textbf{OpenTelemetry} + \textbf{Grafana}/\textbf{Loki}/\textbf{Tempo} ile gözlemlenebilirlik altyapısı kurdu.
+  \item \textbf{30'dan fazla C\#/.NET mikroservisi} için mevcut sözleşmeleri ve \textbf{JWT kimlik doğrulamasını} yeniden kullanan, amaca yönelik araçlar sunan \textbf{temel MCP (Model Context Protocol) sunucusunu} geliştirip teknik liderliğini üstlendi; çalışma zamanında araç keşfi yapan, \textbf{LLM'den bağımsız bir AI Agent Service} (\textbf{Python LangChain} + \textbf{LangSmith}) tasarladı ve \textbf{Microsoft Semantic Kernel} ile .NET agent iş akışları prototipledi; teknik dokümantasyon ve API'ler üzerinde bir \textbf{Python/Flask RAG servisi} geliştirdi (\textbf{ChromaDB}; \href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}}). 2 stajyere mentorluk yaptı ve bir Bilgisayar Bilimleri öğrencisinin yarı zamanlı mühendis olarak işe alınmasını sağladı.
+  \item \textbf{Bitbucket}, \textbf{JIRA} ve çalışma kayıtlarından çalışan kapasite kullanım metriklerini toplayan, e-posta otomasyonu içeren ve \textbf{AWS ECR}'a dağıtılan otomatik bir \textbf{Python} servisi geliştirdi.
+\end{itemize}
+
+\resumeSubheading{Mavi ArGe}{Antalya, Türkiye}{Backend Yazılım Mühendisi (Sözleşmeli)}{Ekim 2024 -- Aralık 2024}
+\begin{itemize}
+  \item Bir Elektrikli Araç şarj istasyonu Filo Yönetimi \textbf{IoT} sistemi (\textbf{TÜBİTAK} projesi) için batarya telemetrisi ve izleme panolarına yönelik kural tabanlı bir motor dahil olmak üzere \textbf{C\#/.NET REST API'leri} geliştirdi.
+\end{itemize}
+
+\resumeSubheading{P.I. Works}{Uzaktan, İstanbul, Türkiye}{Full Stack Yazılım Geliştirici}{Haziran 2023 -- Eylül 2024}
+\begin{itemize}
+  \item Kurumsal bir telekomünikasyon projesinde \textbf{Angular-C\#/.NET} ile yeni özellikler geliştirdi, birim test kapsamını artırdı ve kod kokularını gideren yeniden düzenlemeler yaptı.
+\end{itemize}
+
+\resumeSubheading{Linarit}{Antalya, Türkiye}{Frontend Geliştirici}{Şubat 2022 -- Eylül 2022}
+\begin{itemize}
+  \item \textbf{React} tabanlı \textbf{Linarit PQM Endüstriyel IoT platformu} için, \textbf{5 servisli mikroservis mimarisi} ve IoT uç cihazları arasında gerçek zamanlı \textbf{gRPC} veri görselleştirmesi, istemci tarafı önbellekleme ve performans iyileştirmeleri dahil temel özellikler geliştirdi.
+\end{itemize}
+
+\resumeSubheading{AudioHealer}{Antalya, Türkiye}{Kurucu Yazılım Geliştirici}{Eylül 2021 -- Şubat 2022}
+\begin{itemize}
+  \item Yapay zeka destekli, full stack ses iyileştirme platformu \href{https://www.audiohealer.com}{AudioHealer}'ı geliştirdi: gerçek zamanlı gürültü giderimi için \textbf{DTLN} (TensorFlow/Keras) sinir ağı; \textbf{FFmpeg} tabanlı 18 bant EQ ve EBU R128 ses yüksekliği normalizasyon hattı; \textbf{Google Cloud Run} üzerinde \textbf{Flask} backend; \textbf{Svelte} web arayüzü ve \textbf{Flutter} mobil istemci. Y Combinator'a başvurdu.
+\end{itemize}
+
+%-----------EDUCATION-----------------
+\section{Eğitim}
+\resumeProject{Bilgisayar Mühendisliği Lisans Derecesi}{Akdeniz Üniversitesi, Antalya}{2019 -- 2024}
+
+%-----------PROJECTS-----------------
+\section{Projeler}
+\resumeProject{Tiro}{\href{https://tiro.legal}{tiro.legal}}{}
+\begin{itemize}
+  \item Avukatlar için yerleşik yerel LLM (RAG) içeren masaüstü dava yönetim uygulaması. \textbf{Python}, \textbf{FastAPI}, \textbf{Electron}, \textbf{React}, \textbf{SQLite}, \textbf{ChromaDB}. Platformlar arası çalıştırılabilir uygulama.
+\end{itemize}
+
+\resumeProject{FitBrand}{\href{https://fitbrand.app}{fitbrand.app}}{}
+\begin{itemize}
+  \item Kişisel antrenörlere özel marka kimliğiyle sunulan PWA: özel logo, renkler ve alan adıyla tamamen markalanabilir uygulamalar. Yapay zeka destekli antrenman planları, danışan yönetimi, mesajlaşma ve blog. App Store gerektirmeden \textbf{PWA} olarak yüklenir. \textbf{Next.js}, \textbf{Tamagui}, \textbf{Prisma}, \textbf{PostgreSQL}. Yapay zeka için \textbf{MCP} araçları.
+\end{itemize}
+
+\end{document}
