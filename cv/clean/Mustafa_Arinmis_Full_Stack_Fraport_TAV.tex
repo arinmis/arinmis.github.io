@@ -1,0 +1,116 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}[
+  UprightFont = *-Roman,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Ligatures = TeX,
+]
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+\definecolor{accent}{HTML}{1A2733}
+\definecolor{subtle}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{2.5in}
+
+\urlstyle{rm}
+\raggedright
+\linespread{0.9}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{%
+  \normalfont\large\bfseries\color{accent}%
+}{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{1pt}%
+  \noindent{\bfseries #1}\hfill {\small #4}\par%
+  \noindent{\itshape\color{subtle} #3 \, $\cdot$\, #2}\par%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{1pt}%
+  \noindent{\bfseries #1}\hfill {\small #3}\par%
+  \noindent{\itshape\color{subtle} #2}\par%
+}
+
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=0pt, topsep=0pt, parsep=0pt}
+
+\begin{document}
+
+\begin{center}
+  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
+  {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
+  {\small\color{subtle} Antalya, Turkiye \, $\cdot$\, BSc Computer Engineering, Akdeniz University}
+\end{center}
+\vspace{2pt}
+
+\section{Summary}
+Full-Stack Software Engineer with 4 years of software engineering experience, building reliable backend services with .NET and frontend applications with React. Designed and deployed 5 production .NET 10 microservices for a 30+ service tourism platform, with a strong focus on clean, maintainable code, testing, and end-to-end delivery.
+
+\section{Experience}
+
+\resumeSubheading{\href{https://www.santsg.com/en/products/octopus-project/}{SAN TSG (OctopusPlus)}}{Antalya, Turkiye}{Backend Software Engineer}{Nov 2024 -- Jul 2026}
+\begin{itemize}
+  \item Built and maintained features for hotel and excursion bookings, bringing directly relevant \textbf{tourism-domain experience} to digital product delivery.
+  \item Engineered and deployed 5 production .NET 10 microservices for a 30+ service booking platform, covering excursion, flight, and hotel workflows with \textbf{Clean Architecture and SOLID principles}, \textbf{CQRS}, \textbf{MediatR}, and \textbf{FluentValidation}.
+  \item Built event-driven backend integrations using \textbf{Dapr} and \textbf{RabbitMQ}, with \textbf{EF Core}, \textbf{PostgreSQL}, \textbf{MongoDB}, and \textbf{Redis} for data persistence and state management.
+  \item Supported production delivery in \textbf{Docker} and \textbf{AWS EKS} environments, contributing across implementation, troubleshooting, and continuous improvement.
+  \item Built an MCP server and AI agent platform for a \textbf{30+ microservice AI-native application}.
+  \item Mentored 6 interns, one of whom was hired as a part-time engineer.
+\end{itemize}
+
+\resumeSubheading{P.I. Works}{Remote, Istanbul, Turkiye}{Full Stack Software Developer}{Jun 2023 -- Sep 2024}
+\begin{itemize}
+  \item Developed features for an enterprise Angular and C\#/.NET geolocation network platform, increasing unit-test coverage and refactoring code smells to improve maintainability.
+  \item Built internal root-cause-analysis tools to track network mitigations, then Dockerized and deployed them through GitLab CI.
+  \item Added YAML support alongside JSON to a custom configuration NuGet package.
+\end{itemize}
+
+\resumeSubheading{Linarit}{Antalya, Turkiye}{Frontend Developer}{Dec 2021 -- Sep 2022}
+\begin{itemize}
+  \item Took full ownership of the React frontend after the frontend developer left the company, delivering frontend features independently for industrial IoT users.
+  \item Migrated frontend styling from Sass to Tailwind CSS.
+  \item Optimized unnecessary React renders and client-side caching, improving dashboard performance.
+  \item Built real-time gRPC data visualizations for industrial IoT telemetry received from a message broker.
+\end{itemize}
+
+\section{Education}
+\resumeProject{B.Sc. Computer Engineering}{Akdeniz University, Antalya}{2019 -- 2024}
+
+\section{Technical Skills}
+\textbf{Backend:} C\#, .NET, EF Core, CQRS, MediatR, FluentValidation, Dapr, REST-oriented microservices\\
+\textbf{Data and infrastructure:} PostgreSQL, MongoDB, Redis, RabbitMQ, Docker, Kubernetes, AWS EKS/ECR\\
+\textbf{Frontend:} React, Next.js, TypeScript, TanStack Query (React Query), Redux, Tailwind CSS, PWA\\
+\textbf{Tools:} Claude Code, Git, Linux, Vim
+
+\section{Projects}
+\resumeProject{FitBrand}{\href{https://fitbrand.app}{fitbrand.app}}{}
+\begin{itemize}
+  \item White-label PWA for personal trainers, with custom branding, workout plans, client management, progress tracking, messaging, and a blog. Next.js, React, TypeScript, TanStack Query, Redux, Tailwind CSS, Tamagui, Prisma, and PostgreSQL.
+\end{itemize}
+
+\resumeProject{Tiro}{\href{https://tiro.legal}{tiro.legal}}{}
+\begin{itemize}
+  \item Desktop legal case manager with a built-in local LLM and RAG capability. React, Python, FastAPI, Electron, SQLite, and ChromaDB.
+\end{itemize}
+
+\end{document}
