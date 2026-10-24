@@ -1,0 +1,117 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{XCharter}[
+  UprightFont = *-Roman,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Ligatures = TeX,
+]
+\usepackage[a4paper,left=30pt,right=30pt,top=24pt,bottom=24pt]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+\definecolor{accent}{HTML}{1A2733}
+\definecolor{subtle}{HTML}{666666}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{rm}
+\raggedright
+\linespread{0.9}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{%
+  \normalfont\large\bfseries\color{accent}%
+}{}{0em}{}[{\color{subtle}\vspace{1pt}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{1pt}%
+  \noindent{\bfseries #1}\hfill {\small #4}\par%
+  \noindent{\itshape\color{subtle} #3 \,$\cdot$\, #2}\par%
+}
+
+\newcommand{\resumeProject}[3]{%
+  \vspace{1pt}%
+  \if\relax\detokenize{#3}\relax
+  \noindent{\bfseries #1}\quad{\itshape\color{subtle} #2}\par%
+  \else
+  \noindent{\bfseries #1}\hfill {\small #3}\par%
+  \noindent{\itshape\color{subtle} #2}\par%
+  \fi
+}
+
+\setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=14pt, label=\textbullet, itemsep=0pt, topsep=0pt, parsep=0pt}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  {\fontsize{24pt}{28pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
+  {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
+  {\small\color{subtle} Antalya, Türkiye \,$\cdot$\, Bilgisayar Mühendisliği, Akdeniz Üniversitesi}
+\end{center}
+\vspace{2pt}
+
+%-----------SUMMARY-----------------
+\section{Özet}
+\textbf{4 yıllık yazılım mühendisliği deneyimine} sahip bir \textbf{Yapay Zeka Mühendisiyim}. Backend, mikroservis ve full-stack geliştirme geçmişimi AI engineering yetkinlikleriyle birleştiriyorum. \textbf{Agentic sistemler}, \textbf{RAG pipeline'ları} ve \textbf{agent harness} geliştiriyorum. Agent orchestration, tool calling ve MCP ile LLM uygulamalarını production sistemlere entegre ediyorum.
+
+\section{Deneyim}
+\resumeSubheading{\href{https://www.createanapi.com}{createanapi.com} (\href{https://www.promolink.io/}{PromoLink})}{Uzaktan, Arizona, ABD}{Full Stack Yapay Zeka Yazılım Mühendisi}{Ağustos 2026 -- Devam ediyor}
+\begin{itemize}
+  \item Promosyon ürünlerine yönelik \textbf{e-ticaret platformu PromoLink'te} .NET/C#, React, AWS ve MongoDB ile full-stack özellikler ve AI agent'lar geliştiriyorum.
+  \item \textbf{400.000'den fazla ürün içeren katalogda agentic RAG tabanlı arama} geliştiriyorum; OpenSearch semantic retrieval ve keyword search ile fiyat, adet ve malzeme filtrelerini birleştiriyorum.
+  \item Doğal dildeki taleplerle online mağaza oluşturan ve düzenleyen \textbf{CMS agent} geliştiriyorum; tool calling ve schema validation kullanıyor, canlı preview sunuyorum.
+  \item Bu özellikleri destekleyen \textbf{LLM'den bağımsız agent platformunu} geliştiriyorum; .NET tool handler'ları, retry policy, event recovery, embedding batching/caching ve concurrent retrieval kullanıyorum.
+\end{itemize}
+
+\resumeSubheading{\href{https://www.santsg.com/en/products/octopus-project/}{SAN TSG (OctopusPlus)}}{Antalya, Türkiye}{Backend Yazılım Mühendisi}{Kasım 2024 -- Temmuz 2026}
+\begin{itemize}
+  \item 30'dan fazla .NET mikroservisi için runtime tool discovery destekleyen JWT korumalı MCP server ve LLM agent platformu geliştirdim.
+  \item Teknik dokümantasyon için \textbf{RAG servisi} geliştirdim (Flask, ChromaDB); 6 stajyere mentorluk yaptım, biri yarı zamanlı mühendis olarak işe alındı.
+  \item Turizm rezervasyonları için \textbf{5 production mikroservisi} .NET/C#, CQRS, Dapr ve RabbitMQ ile geliştirip AWS EKS üzerinde canlıya aldım; GitOps için ArgoCD kullandım.
+\end{itemize}
+
+\resumeSubheading{P.I. Works}{Uzaktan, İstanbul, Türkiye}{Full Stack Yazılım Geliştirici}{Haziran 2023 -- Eylül 2024}
+\begin{itemize}
+  \item Kurumsal coğrafi konum platformunda Angular ve C#/.NET ile özellikler geliştirdim, birim test kapsamını artırdım ve kodun bakımını kolaylaştırdım.
+  \item Ağ sorunlarına yönelik müdahaleleri izleyen kök neden analizi araçları geliştirdim; \textbf{Docker} ile paketleyip \textbf{GitLab CI} üzerinden dağıttım.
+\end{itemize}
+
+\resumeSubheading{Linarit}{Antalya, Türkiye}{Frontend Geliştirici}{Aralık 2021 -- Eylül 2022}
+\begin{itemize}
+  \item TÜBİTAK Ar-Ge projesinde endüstriyel IoT dashboard'unun React frontend'ini üstlendim; gerçek zamanlı gRPC telemetri görselleştirmeleri, rendering optimizasyonu ve client-side caching geliştirdim.
+\end{itemize}
+
+\section{Eğitim}
+\resumeProject{Bilgisayar Mühendisliği, Yüksek Lisans}{Akdeniz Üniversitesi, Antalya}{2026 -- Devam ediyor}
+\resumeProject{Bilgisayar Mühendisliği, Lisans}{Akdeniz Üniversitesi, Antalya}{2019 -- 2024}
+
+\section{Teknik Yetkinlikler}
+\textbf{AI engineering:} Agent orchestration, tool calling, RAG, embeddings, MCP, semantic search\\
+\textbf{Diller ve framework'ler:} C\#, .NET, Python, React, TypeScript, Flask, FastAPI\\
+\textbf{Veri ve altyapı:} OpenSearch, MongoDB, ChromaDB, PostgreSQL, Redis, Docker, AWS EKS/ECR
+
+\section{Projeler}
+\resumeProject{Tiro}{\href{https://tiro.legal}{tiro.legal}}{}
+\begin{itemize}
+  \item Avukatlar için cross-platform, RAG tabanlı dava yönetim uygulaması geliştirdim; \textbf{local LLM runtime} entegre edip model fine-tuning yaptım. Python, FastAPI, ChromaDB, Electron, React.
+\end{itemize}
+
+\resumeProject{FitBrand}{\href{https://fitbrand.app}{fitbrand.app}}{}
+\begin{itemize}
+  \item AI destekli antrenman planları ve MCP tools içeren white-label antrenör platformu. Next.js, Prisma, PostgreSQL; markaya özel PWA ve danışan yönetimi.
+\end{itemize}
+\end{document}

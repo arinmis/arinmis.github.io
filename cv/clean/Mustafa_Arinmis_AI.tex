@@ -8,7 +8,7 @@
   BoldItalicFont = *-BoldItalic,
   Ligatures = TeX,
 ]
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,left=30pt,right=30pt,top=24pt,bottom=24pt]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
@@ -23,12 +23,6 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.9in}
-\addtolength{\textheight}{2.5in}
 
 \urlstyle{rm}
 \raggedright
@@ -49,8 +43,12 @@
 
 \newcommand{\resumeProject}[3]{%
   \vspace{1pt}%
+  \if\relax\detokenize{#3}\relax
+  \noindent{\bfseries #1}\quad{\itshape\color{subtle} #2}\par%
+  \else
   \noindent{\bfseries #1}\hfill {\small #3}\par%
   \noindent{\itshape\color{subtle} #2}\par%
+  \fi
 }
 
 \setlist[description]{leftmargin=14pt, itemsep=1pt, topsep=1pt, parsep=0pt}
@@ -60,7 +58,7 @@
 
 %----------HEADING-----------------
 \begin{center}
-  {\fontsize{22pt}{26pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
+  {\fontsize{24pt}{28pt}\selectfont\bfseries\color{accent} Mustafa Arinmis}\\[4pt]
   {\small\color{subtle} mustafa\_arinmis@outlook.com \, $\bullet$ \, +90 543 549 99 53 \, $\bullet$ \, \href{https://github.com/arinmis}{github.com/arinmis} \, $\bullet$ \, \href{https://www.linkedin.com/in/arinmis}{linkedin.com/in/arinmis}}\\[2pt]
   {\small\color{subtle} Antalya, Turkiye \,$\cdot$\, BSc Computer Engineering, Akdeniz University}
 \end{center}
@@ -68,55 +66,58 @@
 
 %-----------SUMMARY-----------------
 \section{Summary}
-\textbf{AI Engineer} with \textbf{4 years of software engineering experience}, building cloud-native microservices and production LLM systems. Production experience with \textbf{LangChain}, \textbf{LangSmith}, \textbf{RAG}, and \textbf{MCP}, plus hands-on prototyping with \textbf{Microsoft Semantic Kernel}. Built \textbf{5 production C\#/.NET 10 microservices} in a 30+ service tourism platform on \textbf{AWS EKS} and shipped agentic systems over enterprise documentation.
+\textbf{AI Engineer} with \textbf{4 years of software engineering experience}, combining a background in backend systems, microservices, and full-stack development with AI engineering. Experienced in building \textbf{agentic systems}, \textbf{RAG pipelines}, and \textbf{agent harnesses}, including agent orchestration, tool calling, and MCP integration. Applies software engineering practices to develop reliable LLM applications and integrate them into production systems.
 
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
 
-\resumeSubheading{\href{https://www.santsg.com/en/products/octopus-project/}{SAN TSG (OctopusPlus)}}{Antalya, Turkiye}{AI Engineer}{Nov 2024 -- Jul 2026}
+\resumeSubheading{\href{https://www.createanapi.com}{createanapi.com} (\href{https://www.promolink.io/}{PromoLink})}{Remote, Arizona, USA}{Full Stack AI Software Engineer}{Aug 2026 -- Present}
 \begin{itemize}
-  \item Built features for \textbf{hotel and excursion bookings}, applying hands-on tourism-domain knowledge.
-  \item Built a \textbf{JWT-secured MCP server} and \textbf{LangChain agent platform} for \textbf{30+ .NET microservices}, with runtime tool discovery.
-  \item Developed a \textbf{Flask/ChromaDB RAG service} for technical documentation (\href{https://docs-ai.santsg.com}{\textbf{docs-ai.santsg.com}}); \textbf{mentored 6 interns}, one of whom was hired as a part-time engineer.
-  \item Created an automated Python service to collect employee utilization metrics from Bitbucket, JIRA, and worklogs, which includes email automation and is deployed to AWS ECR.
-  \item Built and deployed \textbf{5 production C\#/.NET 10 microservices} end-to-end in a 30+ tourism platform (excursion, flight, hotel booking) using \textbf{Clean/Onion architecture}, \textbf{CQRS}, MediatR, and the \textbf{Dapr} sidecar (pub/sub over \textbf{RabbitMQ}) on \textbf{AWS EKS} (GitOps via \textbf{ArgoCD}).
+  \item Develop full-stack features and AI agents for \textbf{PromoLink, an e-commerce platform for promotional products}, using C\#/.NET, React, AWS, and MongoDB.
+  \item Build \textbf{agentic RAG product search} across a \textbf{400,000+ product catalog}, combining OpenSearch semantic retrieval and keyword search with price, quantity, and material filters.
+  \item Build a \textbf{CMS agent} that creates and edits online stores from natural-language requests, using tool calling, schema validation, and live previews.
+  \item Develop the \textbf{LLM-independent agent platform} behind these features, with reusable .NET tool handlers, retries, event recovery, embedding batching and caching, and concurrent retrieval.
+\end{itemize}
+
+\resumeSubheading{\href{https://www.santsg.com/en/products/octopus-project/}{SAN TSG (OctopusPlus)}}{Antalya, Turkiye}{Backend Software Engineer}{Nov 2024 -- Jul 2026}
+\begin{itemize}
+  \item Built a JWT-secured MCP server and LLM agent platform with runtime tool discovery for \textbf{30+ .NET microservices}.
+  \item Developed a \textbf{RAG service} for technical documentation using Flask and ChromaDB; mentored 6 interns, one of whom was hired as a part-time engineer.
+  \item Built and deployed \textbf{5 production microservices} for tourism bookings using C#/.NET, CQRS, Dapr, RabbitMQ, AWS EKS, and ArgoCD.
 \end{itemize}
 
 \resumeSubheading{P.I. Works}{Remote, Istanbul, Turkiye}{Full Stack Software Developer}{Jun 2023 -- Sep 2024}
 \begin{itemize}
-  \item Developed features for an enterprise Angular and C\#/.NET geolocation network platform, increasing unit-test coverage and refactoring code smells to improve maintainability.
+  \item Developed enterprise Angular and C#/.NET geolocation features, expanded unit-test coverage, and refactored code to improve maintainability.
   \item Built internal root-cause-analysis tools to track network mitigations, then Dockerized and deployed them through GitLab CI.
-  \item Added YAML support alongside JSON to a custom configuration NuGet package.
 \end{itemize}
 
 \resumeSubheading{Linarit}{Antalya, Turkiye}{Frontend Developer}{Dec 2021 -- Sep 2022}
 \begin{itemize}
-  \item Took full ownership of the React frontend after the frontend developer left the company, delivering frontend features independently for industrial IoT users.
-  \item Migrated frontend styling from Sass to Tailwind CSS.
-  \item Optimized unnecessary React renders and client-side caching, improving dashboard performance.
-  \item Built real-time gRPC data visualizations for industrial IoT telemetry received from a message broker.
+  \item Owned the React frontend for an industrial IoT dashboard within a \textbf{TÜBİTAK R\&D project}; built real-time gRPC telemetry visualizations and optimized rendering and client-side caching.
 \end{itemize}
 
 %-----------EDUCATION-----------------
 \section{Education}
+\resumeProject{Master's in Computer Engineering}{Akdeniz University, Antalya}{2026 -- Present}
 \resumeProject{B.Sc. Computer Engineering}{Akdeniz University, Antalya}{2019 -- 2024}
 
 \section{Technical Skills}
-\textbf{AI and backend:} C\#, .NET, LangChain, LangSmith, RAG, MCP, Semantic Kernel, Flask, FastAPI\\
-\textbf{Data and infrastructure:} ChromaDB, PostgreSQL, MongoDB, Redis, RabbitMQ, Docker, AWS EKS/ECR, ArgoCD\\
-\textbf{Tools:} Git, Linux, Vim, Claude Code
+\textbf{AI engineering:} Agent orchestration, tool calling, RAG, embeddings, MCP, semantic search\\
+\textbf{Languages and frameworks:} C\#, .NET, Python, React, TypeScript, Flask, FastAPI\\
+\textbf{Data and infrastructure:} OpenSearch, MongoDB, ChromaDB, PostgreSQL, Redis, Docker, AWS EKS/ECR
 
 %-----------PROJECTS-----------------
 \section{Projects}
 \resumeProject{Tiro}{\href{https://tiro.legal}{tiro.legal}}{}
 \begin{itemize}
-  \item Desktop legal case manager with built-in local LLM (RAG) for lawyers. \textbf{Python}, \textbf{FastAPI}, \textbf{Electron}, \textbf{React}, \textbf{SQLite}, \textbf{ChromaDB}. Cross-platform executable.
+  \item Built a cross-platform legal case manager with RAG; integrated a \textbf{local LLM runtime} and fine-tuned a model for legal workflows. Python, FastAPI, ChromaDB, Electron, React.
 \end{itemize}
 
 \resumeProject{FitBrand}{\href{https://fitbrand.app}{fitbrand.app}}{}
 \begin{itemize}
-  \item White-label PWA for personal trainers: fully branded apps with custom logo, colors, domain. AI workout plans, client management, messaging, blog. Installs as \textbf{PWA} (no App Store). \textbf{Next.js}, \textbf{Tamagui}, \textbf{Prisma}, \textbf{PostgreSQL}. \textbf{MCP} tools for AI.
+  \item White-label trainer platform with AI workout plans and MCP tools, built with Next.js, Prisma, and PostgreSQL; supports branded PWAs and client management.
 \end{itemize}
 
 \end{document}
